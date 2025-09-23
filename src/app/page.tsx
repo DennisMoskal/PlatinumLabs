@@ -20,13 +20,12 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Einheitlicher Button-Style (Gradient, Hover & Active, content-sized)
+// Einheitlicher Button-Style (Gradient aus global.css .maestro-btn + Hover/Active + content-sized)
 const btnBase =
   "maestro-btn inline-flex items-center justify-center px-5 py-2.5 text-base md:text-lg font-semibold " +
   "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-110 active:scale-[0.98] transition-all"
 
 export default function HomePage() {
-  // 7 wichtigste Chains inkl. TON
   const supportedChains = [
     { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
     { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -37,7 +36,6 @@ export default function HomePage() {
     { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
   ]
 
-  // Inline Feature-Begriffe (mit Punkt davor)
   const heroFeatures = [
     "Multi-Wallet Sniping",
     "Smart Gas & Slippage",
@@ -47,7 +45,6 @@ export default function HomePage() {
     "Multi-Chain & Lightning",
   ]
 
-  // Bots inkl. interner Weiterleitungsrouten (funktionierende Links)
   const tradingBots = [
     {
       id: "maestro",
@@ -143,7 +140,7 @@ export default function HomePage() {
 
   return (
     <div className="maestro-main-bg">
-      {/* Background Effects -> blockieren keine Klicks */}
+      {/* Background Effects – blockieren keine Klicks */}
       <div className="maestro-tech-grid pointer-events-none" />
       <div className="maestro-floating-particles pointer-events-none" />
       <div className="maestro-circuit-overlay pointer-events-none" />
@@ -211,7 +208,7 @@ export default function HomePage() {
               <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
             </div>
 
-            {/* Features: inline, nur Wort + Punkt */}
+            {/* Features: inline, nur Begriff + Punkt */}
             <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
               {heroFeatures.map((f) => (
                 <li key={f} className="flex items-center">
@@ -245,7 +242,8 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8">
-                <Button asChild className={btnBase}>
+                {/* brand-Variante verhindert, dass default bg-primary deinen Gradient überdeckt */}
+                <Button asChild variant="brand" className={btnBase}>
                   <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
                     Get CryptoPulse Pro – $197
                   </Link>
@@ -324,9 +322,6 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading Bots</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover advanced Telegram bots for sniping, copy trading, and automated DeFi strategies.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -357,9 +352,8 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA: unten ausgerichtet, content-sized */}
                   <div className="mt-auto">
-                    <Button asChild className={btnBase}>
+                    <Button asChild variant="brand" className={btnBase}>
                       <Link href={bot.link}>Launch on Telegram</Link>
                     </Button>
                   </div>
@@ -397,7 +391,7 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
                 <div className="mt-auto">
-                  <Button asChild className={btnBase}>
+                  <Button asChild variant="brand" className={btnBase}>
                     <Link href="/api/go/maestro">Start Bridging via Maestro</Link>
                   </Button>
                 </div>
@@ -419,7 +413,7 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
                 <div className="mt-auto">
-                  <Button asChild className={btnBase}>
+                  <Button asChild variant="brand" className={btnBase}>
                     <Link href="/api/go/blum">Start Bridging via Blum</Link>
                   </Button>
                 </div>
@@ -428,14 +422,14 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Button asChild className={btnBase}>
+            <Button asChild variant="brand" className={btnBase}>
               <Link href="#bots">Discover All Trading Bots</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer (z-index & keine Overlays davor, Links klickbar) */}
+      {/* Footer */}
       <footer className="maestro-footer border-t border-white/10 py-12 relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
@@ -481,7 +475,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="border-top border-white/10 mt-8 pt-8 text-center">
+          <div className="border-t border-white/10 mt-8 pt-8 text-center">
             <p className="text-gray-400">© 2025 PlatinumLabs. All rights reserved. | Trade Smarter</p>
           </div>
         </div>
