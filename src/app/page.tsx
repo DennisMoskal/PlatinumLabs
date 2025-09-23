@@ -20,12 +20,13 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Einheitlicher Button-Style (Gradient aus global.css .maestro-btn + Hover/Active + content-sized)
+// Einheitlicher Button-Style: content-sized + Hover/Active + Fokus-Ring
 const btnBase =
   "maestro-btn inline-flex items-center justify-center px-5 py-2.5 text-base md:text-lg font-semibold " +
   "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-110 active:scale-[0.98] transition-all"
 
 export default function HomePage() {
+  // 7 wichtigste Chains inkl. TON
   const supportedChains = [
     { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
     { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -36,6 +37,7 @@ export default function HomePage() {
     { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
   ]
 
+  // Inline Features mit Punkt davor (keine Kästen)
   const heroFeatures = [
     "Multi-Wallet Sniping",
     "Smart Gas & Slippage",
@@ -45,6 +47,7 @@ export default function HomePage() {
     "Multi-Chain & Lightning",
   ]
 
+  // Bot-Weiterleitungen über funktionierende interne Routen
   const tradingBots = [
     {
       id: "maestro",
@@ -242,7 +245,6 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8">
-                {/* brand-Variante verhindert, dass default bg-primary deinen Gradient überdeckt */}
                 <Button asChild variant="brand" className={btnBase}>
                   <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
                     Get CryptoPulse Pro – $197
@@ -322,6 +324,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading Bots</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Discover advanced Telegram bots for sniping, copy trading, and automated DeFi strategies.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -352,6 +357,7 @@ export default function HomePage() {
                     ))}
                   </div>
 
+                  {/* CTA unten ausrichten, content-sized */}
                   <div className="mt-auto">
                     <Button asChild variant="brand" className={btnBase}>
                       <Link href={bot.link}>Launch on Telegram</Link>
