@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * Button-Styles. "brand" lässt dir die volle Kontrolle via zusätzlicher Klassen (z. B. Gradient).
+ * Button-Styles. "brand" lässt dir die volle Kontrolle via zusätzlicher Klassen (z. B. Gradient ".maestro-btn").
  */
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors " +
@@ -20,7 +20,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        brand: "", // für deinen Gradient via className (z. B. "maestro-btn")
+        brand: "", // nutzt externen Gradient/Glanz via className (z. B. ".maestro-btn")
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -41,7 +41,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /**
    * Rendert das Kind (z. B. <Link/>) als Root-Element.
-   * Klasse & Props werden in das Kind gemerged – keine Extra-Dependency nötig.
+   * Es wird NUR die className gemerged, damit keine fremden Props (z. B. type) Next/Link stören.
    */
   asChild?: boolean
   children?: React.ReactNode
@@ -52,24 +52,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(buttonVariants({ variant, size }), className)
 
     if (asChild) {
-      // Erwartet exakt ein React-Element (z. B. <Link/> oder <a/>)
-      const child = React.Children.only(children) as React.ReactElement<
-        { className?: string } & React.HTMLAttributes<HTMLElement>
-      >
-
-      if (!React.isValidElement(child)) {
-        // Fallback: normales Button-Element
-        return (
-          <button ref={ref} className={classes} type={type ?? "button"} {...props}>
-            {children}
-          </button>
-        )
+      const onlyChild = React.Children.only(children)
+      if (React.isValidElement<{ className?: string }>(onlyChild)) {
+        return React.cloneElement(onlyChild, {
+          className: cn(onlyChild.props.className, classes),
+        })
       }
-
-      return React.cloneElement(child, {
-        ...props,
-        className: cn(child.props.className, classes),
-      })
+      // Fallback: falls kein valides Element übergeben wurde
+      return (
+        <button ref={ref} className={classes} type={type ?? "button"} {...props}>
+          {children}
+        </button>
+      )
     }
 
     return (
