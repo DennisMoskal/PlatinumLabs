@@ -3,8 +3,17 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles } from "lucide-react"
+import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"  // Lock hinzugefügt
 import Link from "next/link"
+
+// Type für tradingTools (sichere Icon-Rendering)
+type LucideIcon = React.ComponentType<{ className?: string; size?: number | string }>;
+
+interface TradingTool {
+  title: string;
+  description: string;
+  icon: LucideIcon;  // Expliziter Typ für Icon
+}
 
 export default function HomePage() {
   // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
@@ -97,7 +106,8 @@ export default function HomePage() {
     },
   ]
 
-  const tradingTools = [
+  // tradingTools mit explizitem Typ und Lock-Import
+  const tradingTools: TradingTool[] = [
     { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
     { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated trading strategies.", icon: Brain },
     { title: "Risk Management Tools", description: "Stop-loss orders, position sizing, and portfolio diversification features.", icon: Shield },
