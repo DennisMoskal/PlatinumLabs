@@ -239,6 +239,7 @@
   );
   transition: left 0.6s ease-in-out;
   z-index: 1;
+  pointer-events: none; /* FIX: overlay must not block clicks */
 }
 
 .maestro-card:hover::before {
@@ -253,13 +254,21 @@
     0 0 0 1px rgba(147, 51, 234, 0.2);
 }
 
-/* Maestro-style buttons */
+/* Maestro-style buttons (shared look) */
 .maestro-btn {
   background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
   border: 1px solid rgba(147, 51, 234, 0.3);
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0.75rem; /* like rounded-xl */
 }
 
 .maestro-btn::before {
@@ -271,6 +280,7 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
+  pointer-events: none;
 }
 
 .maestro-btn:hover::before {
@@ -279,9 +289,28 @@
 
 .maestro-btn:hover {
   transform: translateY(-2px);
+  filter: brightness(1.05);
   box-shadow: 
     0 15px 30px rgba(147, 51, 234, 0.3),
     0 0 0 1px rgba(147, 51, 234, 0.4);
+}
+
+.maestro-btn:active {
+  transform: translateY(0) scale(0.98);
+  filter: brightness(1.03);
+}
+
+.maestro-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(147, 51, 234, 0.35),
+    0 12px 24px rgba(147, 51, 234, 0.25);
+}
+
+.maestro-btn[disabled],
+.maestro-btn[aria-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* Navigation with Maestro styling */
@@ -315,6 +344,7 @@
     radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 30% 70%, rgba(147, 51, 234, 0.08) 0%, transparent 50%);
   z-index: 1;
+  pointer-events: none; /* FIX: do not block clicks in section */
 }
 
 /* Footer styling */
@@ -445,4 +475,13 @@
 @keyframes maestro-text-shine {
   0%, 100% { background-position: 200% center; }
   50% { background-position: -200% center; }
+}
+
+/* --- CRITICAL: make all decorative layers non-interactive so links/buttons are clickable --- */
+.maestro-hero-bg,
+.maestro-tech-grid,
+.maestro-floating-particles,
+.maestro-circuit-overlay,
+.maestro-glow-orb {
+  pointer-events: none;
 }
