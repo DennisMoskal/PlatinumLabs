@@ -33,14 +33,16 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  href?: string; // Hinzufügen für Link-Unterstützung
+  href?: string; // Unterstützung für Link
+  target?: string; // Optionaler target-Prop für <Link>
+  rel?: string; // Optionaler rel-Prop für <Link>
 }
 
 const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, href, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, href, target, rel, ...props }, ref) => {
     if (asChild && href) {
       return (
-        <Link href={href} target={props.target} rel={props.rel} className={cn(buttonVariants({ variant, size, className }))}>
+        <Link href={href} target={target} rel={rel} className={cn(buttonVariants({ variant, size, className }))}>
           {props.children}
         </Link>
       );
