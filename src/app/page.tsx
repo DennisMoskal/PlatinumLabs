@@ -20,11 +20,16 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Einheitlicher Button-Style: content-sized + Hover/Active + Fokus-Ring
+// Schlanker „alter Look“: gleicher Glanz/Gradient über .maestro-btn, weiße Schrift, Hover & Active.
+// (Breite passt sich dem Inhalt an.)
 const btnBase =
-  "maestro-btn inline-flex items-center justify-center px-5 py-2.5 text-base md:text-lg font-semibold " +
-  "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-110 active:scale-[0.98] transition-all"
+  "maestro-btn text-white rounded-xl px-5 py-2 text-base font-medium " +
+  "hover:brightness-110 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition-all"
 
+// Konsistente CTA-Ausrichtung am Kartenboden
+const cardCtaWrap = "mt-auto"
+
+// Seitenkomponente
 export default function HomePage() {
   // 7 wichtigste Chains inkl. TON
   const supportedChains = [
@@ -47,7 +52,7 @@ export default function HomePage() {
     "Multi-Chain & Lightning",
   ]
 
-  // Bot-Weiterleitungen über funktionierende interne Routen
+  // Bot-Weiterleitungen (interne Routen wie im alten Code)
   const tradingBots = [
     {
       id: "maestro",
@@ -301,21 +306,21 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tradingTools.map((tool) => (
-              <Card key={tool.title} className="maestro-card transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
-                    {tool.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{tool.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tradingTools.map((tool) => (
+            <Card key={tool.title} className="maestro-card transition-colors h-full">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
+                  {tool.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300">{tool.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
         </div>
       </section>
 
@@ -358,7 +363,7 @@ export default function HomePage() {
                   </div>
 
                   {/* CTA unten ausrichten, content-sized */}
-                  <div className="mt-auto">
+                  <div className={cardCtaWrap}>
                     <Button asChild variant="brand" className={btnBase}>
                       <Link href={bot.link}>Launch on Telegram</Link>
                     </Button>
@@ -396,7 +401,7 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
-                <div className="mt-auto">
+                <div className={cardCtaWrap}>
                   <Button asChild variant="brand" className={btnBase}>
                     <Link href="/api/go/maestro">Start Bridging via Maestro</Link>
                   </Button>
@@ -418,7 +423,7 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
-                <div className="mt-auto">
+                <div className={cardCtaWrap}>
                   <Button asChild variant="brand" className={btnBase}>
                     <Link href="/api/go/blum">Start Bridging via Blum</Link>
                   </Button>
