@@ -3,16 +3,16 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, DollarSign, Lock, Sparkles } from "lucide-react"
+import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
-  // Einheitlicher Button-Basisklassen (eng am Inhalt, Hover+Active)
+  // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
   const btnBase =
-    "maestro-btn inline-flex items-center justify-center px-5 py-2.5 text-base md:text-lg font-semibold " +
-    "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-110 active:scale-[0.98] transition-all"
+    "maestro-btn inline-flex items-center justify-center px-4 py-2 text-base md:text-lg font-semibold " +
+    "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all"
 
-  // Bot-Daten mit einheitlichen Recommendation-Badges
+  // Bot-Daten mit Affiliate-Weiterleitungen
   const tradingBots = [
     {
       id: "maestro",
@@ -23,7 +23,7 @@ export default function HomePage() {
       tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
       icon: Bot,
       featured: true,
-      link: "/api/go/maestro",
+      link: "https://t.me/maestro?start=r-schmied0815",
     },
     {
       id: "bullx",
@@ -33,7 +33,7 @@ export default function HomePage() {
       recommendation: "Best for Limit Orders & Charts",
       tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
       icon: TrendingUp,
-      link: "/api/go/bullx",
+      link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia",
     },
     {
       id: "solsniperx",
@@ -43,7 +43,7 @@ export default function HomePage() {
       recommendation: "Early SOL Snipes",
       tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
       icon: Target,
-      link: "/api/go/solsniperx",
+      link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk",
     },
     {
       id: "bonkbot",
@@ -53,7 +53,7 @@ export default function HomePage() {
       recommendation: "Top Pick on Solana",
       tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
       icon: Zap,
-      link: "/api/go/bonkbot",
+      link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre",
     },
     {
       id: "blum",
@@ -63,7 +63,7 @@ export default function HomePage() {
       recommendation: "TON-First Multichain Terminal",
       tags: ["TON", "Solana", "BNB", "Terminal-UI"],
       icon: Bot,
-      link: "/api/go/blum",
+      link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi",
     },
     {
       id: "soltradingbot",
@@ -73,7 +73,7 @@ export default function HomePage() {
       recommendation: "Robust Jupiter/Orca Routing",
       tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
       icon: Copy,
-      link: "/api/go/soltradingbot",
+      link: "https://t.me/SolTradingBot?start=jOXoZ6gZY",
     },
     {
       id: "hector",
@@ -83,7 +83,7 @@ export default function HomePage() {
       recommendation: "AI-Driven Gem Scanning",
       tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
       icon: Brain,
-      link: "/api/go/hector",
+      link: "https://t.me/hector_trojanbot?start=r-schmied0815",
     },
     {
       id: "tradewiz",
@@ -93,7 +93,7 @@ export default function HomePage() {
       recommendation: "Ultra-Fast Copy Trading",
       tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
       icon: Shield,
-      link: "/api/go/tradewiz",
+      link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L",
     },
   ]
 
@@ -106,7 +106,6 @@ export default function HomePage() {
     { title: "Secure Asset Storage", description: "Cold storage integration and advanced security measures.", icon: Lock },
   ]
 
-  // 7 wichtigste Chains (inkl. TON)
   const supportedChains = [
     { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
     { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -117,7 +116,6 @@ export default function HomePage() {
     { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
   ]
 
-  // Hero Features (inline, nur Begriffe mit Punkt davor)
   const heroFeatures = [
     "Multi-Wallet Sniping",
     "Smart Gas & Slippage",
@@ -129,7 +127,7 @@ export default function HomePage() {
 
   return (
     <div className="maestro-main-bg">
-      {/* Background Effects (ohne Click-Block: pointer-events-none) */}
+      {/* Background Effects */}
       <div className="maestro-tech-grid pointer-events-none" />
       <div className="maestro-floating-particles pointer-events-none" />
       <div className="maestro-circuit-overlay pointer-events-none" />
@@ -142,8 +140,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center space-x-3">
-              <div className="maestro-logo-glow w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                <DollarSign className="h-6 w-6 text-white" />
+              <div className="maestro-logo-glow w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center gap-1">
+                <FlaskConical className="h-6 w-6 text-white" />
+                <CircuitBoard className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold text-white maestro-text-glow">PlatinumLabs</span>
             </div>
@@ -195,7 +194,7 @@ export default function HomePage() {
               <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
             </div>
 
-            {/* Inline Feature List (nur Begriffe mit Punkt davor) */}
+            {/* Inline Feature List */}
             <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
               {heroFeatures.map((f) => (
                 <li key={f} className="flex items-center">
@@ -228,7 +227,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex justify-center">
                 <Button asChild className={btnBase}>
                   <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
                     Get CryptoPulse Pro – $197
@@ -345,10 +344,9 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA bottom-aligned, gleiche Höhe in allen Karten */}
-                  <div className="mt-auto">
-                    <Button asChild className={`${btnBase} w-full`}>
-                      <Link href={bot.link}>
+                  <div className="mt-auto flex justify-center">
+                    <Button asChild className={`${btnBase} w-fit`}>
+                      <Link href={bot.link} target="_blank" rel="noreferrer">
                         Launch on Telegram
                       </Link>
                     </Button>
@@ -385,9 +383,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
-                <div className="mt-auto">
+                <div className="mt-auto flex justify-center">
                   <Button asChild className={btnBase}>
-                    <Link href="/api/go/maestro">
+                    <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer">
                       Start Bridging via Maestro
                     </Link>
                   </Button>
@@ -409,9 +407,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
-                <div className="mt-auto">
+                <div className="mt-auto flex justify-center">
                   <Button asChild className={btnBase}>
-                    <Link href="/api/go/blum">
+                    <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer">
                       Start Bridging via Blum
                     </Link>
                   </Button>
@@ -434,8 +432,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                  <DollarSign className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center gap-1">
+                  <FlaskConical className="h-5 w-5 text-white" />
+                  <CircuitBoard className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-white">PlatinumLabs</span>
               </div>
