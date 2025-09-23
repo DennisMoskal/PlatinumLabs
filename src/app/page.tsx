@@ -19,12 +19,12 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Einheitlicher CTA-Look (wie dein „Get CryptoPulse Pro“-Button), schlank + Hover/Active
+// Einheitlicher CTA-Stil – exakt wie dein "Get CryptoPulse Pro" Button
 const btnPrimary =
   "maestro-btn text-white rounded-xl px-5 py-2 text-base font-medium " +
   "hover:brightness-110 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition-all"
 
-// Für zentrierte CTA-Position unten in Cards
+// CTA unten mittig in Cards ausrichten – unabhängig vom Text
 const cardCtaWrap = "mt-auto flex justify-center"
 
 // 7 wichtigste Chains inkl. TON
@@ -38,7 +38,7 @@ const supportedChains = [
   { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
 ]
 
-// Inline Features (Punkt + Begriff)
+// Feature-Liste (Punkt + Begriff)
 const heroFeatures = [
   "Multi-Wallet Sniping",
   "Smart Gas & Slippage",
@@ -48,7 +48,7 @@ const heroFeatures = [
   "Multi-Chain & Lightning",
 ]
 
-// Bot-Daten + funktionierende interne Weiterleitungen
+// Bots inkl. funktionierender interner Routen aus deinem alten Code
 const tradingBots = [
   {
     id: "maestro",
@@ -158,7 +158,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center space-x-3">
-              {/* Farbiger Kasten mit zwei Icons */}
+              {/* zwei Icons im farbigen Kasten */}
               <div className="maestro-logo-glow w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center gap-1">
                 <FlaskConical className="h-5 w-5 text-white" />
                 <CircuitBoard className="h-5 w-5 text-white" />
@@ -213,7 +213,7 @@ export default function HomePage() {
               <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
             </div>
 
-            {/* Feature-Liste: Punkt + Begriff */}
+            {/* Features inline */}
             <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
               {heroFeatures.map((f) => (
                 <li key={f} className="flex items-center">
@@ -236,64 +236,61 @@ export default function HomePage() {
             </p>
           </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="maestro-card rounded-2xl p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
-            <div className="space-y-4 text-gray-300">
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="maestro-card rounded-2xl p-8 flex flex-col">
+              <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
+              <div className="space-y-4 text-gray-300">
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
+              </div>
+              <div className="mt-8 flex justify-center">
+                <Link
+                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={btnPrimary}
+                  aria-label="Get CryptoPulse Pro"
+                >
+                  Get CryptoPulse Pro – $197
+                </Link>
+              </div>
             </div>
-            <div className="mt-8 flex justify-center">
-              <Link
-                href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={btnPrimary}
-                aria-label="Get CryptoPulse Pro"
-              >
-                Get CryptoPulse Pro – $197
-              </Link>
-            </div>
-          </div>
 
-          <div className="space-y-6">
-            {[
-              {
-                title: "Statistical Analysis",
-                icon: BarChart3,
-                text:
-                  "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
-              },
-              {
-                title: "Customizable Parameters",
-                icon: Brain,
-                text:
-                  "Tune thresholds and probability filters to match your strategy for optimal results.",
-              },
-              {
-                title: "Professional Reports",
-                icon: Target,
-                text:
-                  "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
-              },
-            ].map((b) => (
-              <Card key={b.title} className="maestro-card">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <b.icon className="mr-2 h-5 w-5 text-purple-400" />
-                    {b.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{b.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="space-y-6">
+              {[
+                {
+                  title: "Statistical Analysis",
+                  icon: BarChart3,
+                  text: "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
+                },
+                {
+                  title: "Customizable Parameters",
+                  icon: Brain,
+                  text: "Tune thresholds and probability filters to match your strategy for optimal results.",
+                },
+                {
+                  title: "Professional Reports",
+                  icon: Target,
+                  text: "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
+                },
+              ].map((b) => (
+                <Card key={b.title} className="maestro-card">
+                  <CardHeader>
+                    <CardTitle className="text-white flex items-center">
+                      <b.icon className="mr-2 h-5 w-5 text-purple-400" />
+                      {b.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-300">{b.text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
