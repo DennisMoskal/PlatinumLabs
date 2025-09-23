@@ -18,8 +18,9 @@ interface TradingTool {
 export default function HomePage() {
   // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
   const btnBase =
-    "maestro-btn inline-flex items-center justify-center px-4 py-2 text-base md:text-lg font-semibold " +
-    "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all"
+    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold " +
+    "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all " +
+    "px-3 py-1" // Reduzierte Padding-Werte für schmalere Buttons
 
   // Bot-Daten mit Affiliate-Weiterleitungen
   const tradingBots = [
@@ -342,7 +343,7 @@ export default function HomePage() {
                   <CardTitle className="text-white">{bot.name}</CardTitle>
                 </CardHeader>
 
-                <CardContent className="flex flex-col grow space-y-4">
+                <CardContent className="flex flex-col grow space-y-4 h-full">
                   <CardDescription className="text-gray-300">{bot.description}</CardDescription>
                   <div className="flex flex-wrap gap-1">
                     {bot.tags.map((tag) => (
@@ -379,7 +380,7 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="text-white">Maestro Bot</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4">
+              <CardContent className="flex flex-col grow space-y-4 h-full">
                 <p className="text-gray-300">
                   Multichain bridging with Houdini integration for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.
                 </p>
@@ -401,7 +402,7 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="text-white">Blum Bot</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4">
+              <CardContent className="flex flex-col grow space-y-4 h-full">
                 <p className="text-gray-300">
                   Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.
                 </p>
