@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -20,135 +19,133 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Schlanker „alter Look“: gleicher Glanz/Gradient über .maestro-btn, weiße Schrift, Hover & Active.
-// (Breite passt sich dem Inhalt an.)
-const btnBase =
+// Einheitlicher CTA-Look (wie dein „Get CryptoPulse Pro“-Button), schlank + Hover/Active
+const btnPrimary =
   "maestro-btn text-white rounded-xl px-5 py-2 text-base font-medium " +
   "hover:brightness-110 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition-all"
 
-// Konsistente CTA-Ausrichtung am Kartenboden
-const cardCtaWrap = "mt-auto"
+// Für zentrierte CTA-Position unten in Cards
+const cardCtaWrap = "mt-auto flex justify-center"
 
-// Seitenkomponente
+// 7 wichtigste Chains inkl. TON
+const supportedChains = [
+  { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
+  { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
+  { name: "BSC", icon: "⬡", color: "from-yellow-400 to-orange-600" },
+  { name: "Arbitrum", icon: "△", color: "from-blue-400 to-cyan-600" },
+  { name: "Base", icon: "🔵", color: "from-blue-500 to-indigo-600" },
+  { name: "Avalanche", icon: "🔺", color: "from-red-400 to-red-600" },
+  { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
+]
+
+// Inline Features (Punkt + Begriff)
+const heroFeatures = [
+  "Multi-Wallet Sniping",
+  "Smart Gas & Slippage",
+  "Anti-Rug Protection",
+  "Auto-Trade",
+  "Token Sniffer",
+  "Multi-Chain & Lightning",
+]
+
+// Bot-Daten + funktionierende interne Weiterleitungen
+const tradingBots = [
+  {
+    id: "maestro",
+    name: "Maestro Bot",
+    description:
+      "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Protection, Call-Channel-Sniping, Wallet-Tools.",
+    recommendation: "Great for Cross-Chain Bridging",
+    tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
+    icon: Bot,
+    featured: true,
+    link: "/api/go/maestro",
+  },
+  {
+    id: "bullx",
+    name: "BullX",
+    description:
+      "Multi-chain via Telegram & Web. Fast execution, limit orders, Pump-Vision, multi-wallet, live charts — ideal for active trading.",
+    recommendation: "Best for Limit Orders & Charts",
+    tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
+    icon: TrendingUp,
+    link: "/api/go/bullx",
+  },
+  {
+    id: "solsniperx",
+    name: "SolSniper X",
+    description:
+      "High-speed sniping on Solana. Auto-buy new tokens, rug filter, LP burn checks, real-time logs — built for early entries.",
+    recommendation: "Early SOL Snipes",
+    tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
+    icon: Target,
+    link: "/api/go/solsniperx",
+  },
+  {
+    id: "bonkbot",
+    name: "BONKbot",
+    description:
+      "Lightning-fast Solana trading with Jupiter routing, MEV protection, limit orders, auto-buys & portfolio tracking.",
+    recommendation: "Top Pick on Solana",
+    tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
+    icon: Zap,
+    link: "/api/go/bonkbot",
+  },
+  {
+    id: "blum",
+    name: "Blum",
+    description:
+      "Multichain (TON, Solana, BNB). On-chain sniping, Terminal UI, limit orders, bridge, wallet management, P&L reports.",
+    recommendation: "TON-First Multichain Terminal",
+    tags: ["TON", "Solana", "BNB", "Terminal-UI"],
+    icon: Bot,
+    link: "/api/go/blum",
+  },
+  {
+    id: "soltradingbot",
+    name: "SolTradingBot",
+    description:
+      "Solana-focused with Jupiter/Orca/Raydium integration, copy trading, limit/DCA orders, backup bots under heavy load.",
+    recommendation: "Robust Jupiter/Orca Routing",
+    tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
+    icon: Copy,
+    link: "/api/go/soltradingbot",
+  },
+  {
+    id: "hector",
+    name: "Hector Trojan Bot",
+    description:
+      "AI-powered strategies, hidden-gem scanning, fast execution in Telegram. Non-custodial and Solana-focused.",
+    recommendation: "AI-Driven Gem Scanning",
+    tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
+    icon: Brain,
+    link: "/api/go/hector",
+  },
+  {
+    id: "tradewiz",
+    name: "TradeWiz",
+    description:
+      "Ultra-fast copy trading (<2s), smart-wallet recognition, rule automation, DCA/limit support.",
+    recommendation: "Ultra-Fast Copy Trading",
+    tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
+    icon: Shield,
+    link: "/api/go/tradewiz",
+  },
+]
+
+const tradingTools = [
+  { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
+  { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated strategies.", icon: Brain },
+  { title: "Risk Management Tools", description: "Stop-loss orders, position sizing, portfolio diversification features.", icon: Shield },
+  { title: "DeFi Integration", description: "Seamless access to DeFi protocols and yield farming.", icon: Activity },
+  { title: "Multi-Chain Support", description: "Trade across Ethereum, Solana, BSC, and more.", icon: Target },
+  { title: "Secure Asset Storage", description: "Cold storage integration and advanced security.", icon: Lock },
+]
+
 export default function HomePage() {
-  // 7 wichtigste Chains inkl. TON
-  const supportedChains = [
-    { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
-    { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
-    { name: "BSC", icon: "⬡", color: "from-yellow-400 to-orange-600" },
-    { name: "Arbitrum", icon: "△", color: "from-blue-400 to-cyan-600" },
-    { name: "Base", icon: "🔵", color: "from-blue-500 to-indigo-600" },
-    { name: "Avalanche", icon: "🔺", color: "from-red-400 to-red-600" },
-    { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
-  ]
-
-  // Inline Features mit Punkt davor (keine Kästen)
-  const heroFeatures = [
-    "Multi-Wallet Sniping",
-    "Smart Gas & Slippage",
-    "Anti-Rug Protection",
-    "Auto-Trade",
-    "Token Sniffer",
-    "Multi-Chain & Lightning",
-  ]
-
-  // Bot-Weiterleitungen (interne Routen wie im alten Code)
-  const tradingBots = [
-    {
-      id: "maestro",
-      name: "Maestro Bot",
-      description:
-        "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Protection, Call-Channel-Sniping, Wallet-Tools.",
-      recommendation: "Great for Cross-Chain Bridging",
-      tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
-      icon: Bot,
-      featured: true,
-      link: "/api/go/maestro",
-    },
-    {
-      id: "bullx",
-      name: "BullX",
-      description:
-        "Multi-chain via Telegram & Web. Fast execution, limit orders, Pump-Vision, multi-wallet, live charts — ideal for active trading.",
-      recommendation: "Best for Limit Orders & Charts",
-      tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
-      icon: TrendingUp,
-      link: "/api/go/bullx",
-    },
-    {
-      id: "solsniperx",
-      name: "SolSniper X",
-      description:
-        "High-speed sniping on Solana. Auto-buy new tokens, rug filter, LP burn checks, real-time logs — built for early entries.",
-      recommendation: "Early SOL Snipes",
-      tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
-      icon: Target,
-      link: "/api/go/solsniperx",
-    },
-    {
-      id: "bonkbot",
-      name: "BONKbot",
-      description:
-        "Lightning-fast Solana trading with Jupiter routing, MEV protection, limit orders, auto-buys & portfolio tracking.",
-      recommendation: "Top Pick on Solana",
-      tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
-      icon: Zap,
-      link: "/api/go/bonkbot",
-    },
-    {
-      id: "blum",
-      name: "Blum",
-      description:
-        "Multichain (TON, Solana, BNB). On-chain sniping, Terminal UI, limit orders, bridge, wallet management, P&L reports.",
-      recommendation: "TON-First Multichain Terminal",
-      tags: ["TON", "Solana", "BNB", "Terminal-UI"],
-      icon: Bot,
-      link: "/api/go/blum",
-    },
-    {
-      id: "soltradingbot",
-      name: "SolTradingBot",
-      description:
-        "Solana-focused with Jupiter/Orca/Raydium integration, copy trading, limit/DCA orders, backup bots under heavy load.",
-      recommendation: "Robust Jupiter/Orca Routing",
-      tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
-      icon: Copy,
-      link: "/api/go/soltradingbot",
-    },
-    {
-      id: "hector",
-      name: "Hector Trojan Bot",
-      description:
-        "AI-powered strategies, hidden-gem scanning, fast execution in Telegram. Non-custodial and Solana-focused.",
-      recommendation: "AI-Driven Gem Scanning",
-      tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
-      icon: Brain,
-      link: "/api/go/hector",
-    },
-    {
-      id: "tradewiz",
-      name: "TradeWiz",
-      description:
-        "Ultra-fast copy trading (<2s), smart-wallet recognition, rule automation, DCA/limit support.",
-      recommendation: "Ultra-Fast Copy Trading",
-      tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
-      icon: Shield,
-      link: "/api/go/tradewiz",
-    },
-  ]
-
-  const tradingTools = [
-    { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
-    { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated strategies.", icon: Brain },
-    { title: "Risk Management Tools", description: "Stop-loss orders, position sizing, portfolio diversification features.", icon: Shield },
-    { title: "DeFi Integration", description: "Seamless access to DeFi protocols and yield farming.", icon: Activity },
-    { title: "Multi-Chain Support", description: "Trade across Ethereum, Solana, BSC, and more.", icon: Target },
-    { title: "Secure Asset Storage", description: "Cold storage integration and advanced security.", icon: Lock },
-  ]
-
   return (
     <div className="maestro-main-bg">
-      {/* Background Effects – blockieren keine Klicks */}
+      {/* Background Effects – dürfen NIE Klicks blockieren */}
       <div className="maestro-tech-grid pointer-events-none" />
       <div className="maestro-floating-particles pointer-events-none" />
       <div className="maestro-circuit-overlay pointer-events-none" />
@@ -161,7 +158,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center space-x-3">
-              {/* Farbiger Kasten mit zwei Icons: FlaskConical + CircuitBoard */}
+              {/* Farbiger Kasten mit zwei Icons */}
               <div className="maestro-logo-glow w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center gap-1">
                 <FlaskConical className="h-5 w-5 text-white" />
                 <CircuitBoard className="h-5 w-5 text-white" />
@@ -180,7 +177,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="maestro-hero-bg absolute inset-0" />
+        <div className="maestro-hero-bg absolute inset-0 pointer-events-none" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
@@ -216,7 +213,7 @@ export default function HomePage() {
               <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
             </div>
 
-            {/* Features: inline, nur Begriff + Punkt */}
+            {/* Feature-Liste: Punkt + Begriff */}
             <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
               {heroFeatures.map((f) => (
                 <li key={f} className="flex items-center">
@@ -239,60 +236,64 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="maestro-card rounded-2xl p-8 flex flex-col">
-              <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
-              <div className="space-y-4 text-gray-300">
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
-              </div>
-              <div className="mt-8">
-                <Button asChild variant="brand" className={btnBase}>
-                  <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
-                    Get CryptoPulse Pro – $197
-                  </Link>
-                </Button>
-              </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="maestro-card rounded-2xl p-8 flex flex-col">
+            <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
+            <div className="space-y-4 text-gray-300">
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
             </div>
-
-            <div className="space-y-6">
-              {[
-                {
-                  title: "Statistical Analysis",
-                  icon: BarChart3,
-                  text:
-                    "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
-                },
-                {
-                  title: "Customizable Parameters",
-                  icon: Brain,
-                  text:
-                    "Tune thresholds and probability filters to match your strategy for optimal results.",
-                },
-                {
-                  title: "Professional Reports",
-                  icon: Target,
-                  text:
-                    "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
-                },
-              ].map((b) => (
-                <Card key={b.title} className="maestro-card">
-                  <CardHeader>
-                    <CardTitle className="text-white flex items-center">
-                      <b.icon className="mr-2 h-5 w-5 text-purple-400" />
-                      {b.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-300">{b.text}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnPrimary}
+                aria-label="Get CryptoPulse Pro"
+              >
+                Get CryptoPulse Pro – $197
+              </Link>
             </div>
           </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                title: "Statistical Analysis",
+                icon: BarChart3,
+                text:
+                  "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
+              },
+              {
+                title: "Customizable Parameters",
+                icon: Brain,
+                text:
+                  "Tune thresholds and probability filters to match your strategy for optimal results.",
+              },
+              {
+                title: "Professional Reports",
+                icon: Target,
+                text:
+                  "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
+              },
+            ].map((b) => (
+              <Card key={b.title} className="maestro-card">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <b.icon className="mr-2 h-5 w-5 text-purple-400" />
+                    {b.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{b.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
         </div>
       </section>
 
@@ -306,21 +307,21 @@ export default function HomePage() {
             </p>
           </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tradingTools.map((tool) => (
-            <Card key={tool.title} className="maestro-card transition-colors h-full">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center">
-                  <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
-                  {tool.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">{tool.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {tradingTools.map((tool) => (
+              <Card key={tool.title} className="maestro-card transition-colors h-full">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
+                    {tool.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{tool.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -362,11 +363,11 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA unten ausrichten, content-sized */}
+                  {/* CTA unten mittig, gleicher Button-Look */}
                   <div className={cardCtaWrap}>
-                    <Button asChild variant="brand" className={btnBase}>
-                      <Link href={bot.link}>Launch on Telegram</Link>
-                    </Button>
+                    <Link href={bot.link} className={btnPrimary} aria-label={`Launch ${bot.name} on Telegram`}>
+                      Launch on Telegram
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -402,9 +403,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
                 <div className={cardCtaWrap}>
-                  <Button asChild variant="brand" className={btnBase}>
-                    <Link href="/api/go/maestro">Start Bridging via Maestro</Link>
-                  </Button>
+                  <Link href="/api/go/maestro" className={btnPrimary} aria-label="Start Bridging via Maestro">
+                    Start Bridging via Maestro
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -424,18 +425,18 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
                 <div className={cardCtaWrap}>
-                  <Button asChild variant="brand" className={btnBase}>
-                    <Link href="/api/go/blum">Start Bridging via Blum</Link>
-                  </Button>
+                  <Link href="/api/go/blum" className={btnPrimary} aria-label="Start Bridging via Blum">
+                    Start Bridging via Blum
+                  </Link>
                 </div>
               </CardContent>
             </Card>
           </div>
 
           <div className="text-center">
-            <Button asChild variant="brand" className={btnBase}>
-              <Link href="#bots">Discover All Trading Bots</Link>
-            </Button>
+            <Link href="#bots" className={btnPrimary} aria-label="Discover All Trading Bots">
+              Discover All Trading Bots
+            </Link>
           </div>
         </div>
       </section>
