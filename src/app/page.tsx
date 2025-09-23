@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, DollarSign, Lock, Sparkles, Globe, Star } from "lucide-react"
+import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, DollarSign, Lock, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
@@ -27,6 +27,7 @@ export default function HomePage() {
     { title: "Secure Asset Storage", description: "Cold storage integration and advanced security measures", icon: Lock }
   ]
 
+  // 7 wichtigste Chains (TON enthalten)
   const supportedChains = [
     { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
     { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -34,6 +35,17 @@ export default function HomePage() {
     { name: "Arbitrum", icon: "△", color: "from-blue-400 to-cyan-600" },
     { name: "Base", icon: "🔵", color: "from-blue-500 to-indigo-600" },
     { name: "Avalanche", icon: "🔺", color: "from-red-400 to-red-600" },
+    { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
+  ]
+
+  // Hero Feature-Liste (ersetzt die alte Trust Row)
+  const heroFeatures = [
+    "Multi-Wallet Sniping",
+    "Smart Gas and Slippage Management",
+    "Anti-Rug Protection",
+    "Auto-Trade",
+    "Token Sniffer",
+    "Multi-Chain & Lightning",
   ]
 
   return (
@@ -87,7 +99,7 @@ export default function HomePage() {
             </p>
 
             {/* Supported Chains Display */}
-            <div className="mb-12">
+            <div className="mb-10">
               <p className="text-sm text-gray-400 mb-6 uppercase tracking-wide">Supported Chains</p>
               <div className="flex flex-wrap justify-center gap-4">
                 {supportedChains.map((c) => (
@@ -99,28 +111,18 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              <p className="mt-4 text-gray-400 text-sm">…und viele weitere werden unterstützt.</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="maestro-btn">
-                <Link href="#cryptopulse">Explore CryptoPulse Pro <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-                <Link href="#bots">View Trading Bots</Link>
-              </Button>
-            </div>
-
-            {/* Trust Row */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-gray-400">
-              <div className="flex items-center gap-2">
-                <Star className="h-4 w-4 text-yellow-400" />
-                <span>Security-first: Anti-Rug / Anti-MEV</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-blue-400" />
-                <span>Multi-Chain & Lightning Fast</span>
-              </div>
-            </div>
+            {/* Feature-Liste (ersetzt die zwei Buttons + alte Trust Row) */}
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
+              {heroFeatures.map((f) => (
+                <li key={f} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500" />
+                  <span className="text-gray-200">{f}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -146,9 +148,9 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />HTML & CSV export capabilities</div>
               </div>
               <div className="mt-8">
-                <Button asChild className="maestro-btn w-full">
+                <Button asChild className="maestro-btn w-full text-base md:text-lg px-6 py-3">
                   <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
-                    Get CryptoPulse Pro - $197 <ArrowRight className="ml-2 h-4 w-4" />
+                    Get CryptoPulse Pro - $197
                   </Link>
                 </Button>
               </div>
@@ -251,9 +253,9 @@ export default function HomePage() {
                       <Badge key={tag} variant="secondary" className="bg-white/10 text-gray-200 text-xs border-white/10">{tag}</Badge>
                     ))}
                   </div>
-                  <Button asChild className="maestro-btn w-full">
+                  <Button asChild className="maestro-btn w-full text-base md:text-lg px-6 py-3">
                     <Link href={bot.telegramLink} target="_blank" rel="noreferrer">
-                      Launch Bot <ArrowRight className="ml-2 h-4 w-4" />
+                      Launch on Telegram
                     </Link>
                   </Button>
                 </CardContent>
@@ -282,9 +284,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
-                <Button asChild className="maestro-btn">
+                <Button asChild className="maestro-btn text-base md:text-lg px-6 py-3">
                   <Link href="https://t.me/Maestro" target="_blank" rel="noreferrer">
-                    Start Bridging via Maestro <ArrowRight className="ml-2 h-4 w-4" />
+                    Start Bridging via Maestro
                   </Link>
                 </Button>
               </CardContent>
@@ -300,9 +302,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
-                <Button asChild className="maestro-btn">
+                <Button asChild className="maestro-btn text-base md:text-lg px-6 py-3">
                   <Link href="https://t.me/BlumCryptoBot" target="_blank" rel="noreferrer">
-                    Start Bridging via Blum <ArrowRight className="ml-2 h-4 w-4" />
+                    Start Bridging via Blum
                   </Link>
                 </Button>
               </CardContent>
@@ -310,8 +312,8 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg" className="maestro-btn">
-              <Link href="#bots">Discover All Trading Bots <ArrowRight className="ml-2 h-5 w-5" /></Link>
+            <Button asChild className="maestro-btn text-base md:text-lg px-6 py-3">
+              <Link href="#bots">Discover All Trading Bots</Link>
             </Button>
           </div>
         </div>
