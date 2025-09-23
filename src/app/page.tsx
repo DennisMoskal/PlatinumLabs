@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"  // Lock hinzugefügt
+import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"
 import Link from "next/link"
 
 // Type für tradingTools (sichere Icon-Rendering)
@@ -12,7 +12,7 @@ type LucideIcon = React.ComponentType<{ className?: string; size?: number | stri
 interface TradingTool {
   title: string;
   description: string;
-  icon: LucideIcon;  // Expliziter Typ für Icon
+  icon: LucideIcon; // Expliziter Typ für Icon
 }
 
 export default function HomePage() {
@@ -238,11 +238,9 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8 flex justify-center">
-                <Button asChild className={btnBase}>
-                  <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer">
-                    Get CryptoPulse Pro – $197
-                  </Link>
-                </Button>
+                <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer" className={btnBase}>
+                  Get CryptoPulse Pro – $197
+                </Link>
               </div>
             </div>
 
@@ -355,11 +353,9 @@ export default function HomePage() {
                   </div>
 
                   <div className="mt-auto flex justify-center">
-                    <Button asChild className={`${btnBase} w-fit`}>
-                      <Link href={bot.link} target="_blank" rel="noreferrer">
-                        Launch on Telegram
-                      </Link>
-                    </Button>
+                    <Link href={bot.link} target="_blank" rel="noreferrer" className={btnBase}>
+                      Launch on Telegram
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -394,11 +390,9 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Button asChild className={btnBase}>
-                    <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer">
-                      Start Bridging via Maestro
-                    </Link>
-                  </Button>
+                  <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
+                    Start Bridging via Maestro
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -418,20 +412,18 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Button asChild className={btnBase}>
-                    <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer">
-                      Start Bridging via Blum
-                    </Link>
-                  </Button>
+                  <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
+                    Start Bridging via Blum
+                  </Link>
                 </div>
               </CardContent>
             </Card>
           </div>
 
           <div className="text-center">
-            <Button asChild className={btnBase}>
-              <Link href="#bots">Discover All Trading Bots</Link>
-            </Button>
+            <Link href="#bots" className={btnBase}>
+              Discover All Trading Bots
+            </Link>
           </div>
         </div>
       </section>
@@ -488,5 +480,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
