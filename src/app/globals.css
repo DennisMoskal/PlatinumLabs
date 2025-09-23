@@ -258,7 +258,7 @@
   inline-size: fit-content; /* Kürzer */
   block-size: 2.5rem; /* Dünner */
   padding-inline: 1rem; /* Anpassung für kürzer */
-  padding-block: 0.5rem; /* Anpassung für dünner */
+  padding-block: 0.25rem; /* Noch dünner für bessere Kontrolle */
   background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
   border: 1px solid rgba(147, 51, 234, 0.3);
   border-radius: 8px;
@@ -266,12 +266,13 @@
   font-weight: 600;
   transition: all 0.3s ease;
   cursor: pointer; /* Sichtbare Klickbarkeit */
+  text-align: center; /* Zentrierung des Textes */
 }
 
 .maestro-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
-  filter: brightness(1.25); /* Korrekter Hover-Effekt */
+  filter: brightness(1.25) !important; /* Stärkerer Hover-Effekt mit !important */
 }
 
 .maestro-btn:active {
