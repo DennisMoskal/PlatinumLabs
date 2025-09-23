@@ -42,7 +42,13 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
   ({ className, variant, size, asChild = false, href, target, rel, ...props }, ref) => {
     if (asChild && href) {
       return (
-        <Link href={href} target={target} rel={rel} className={cn(buttonVariants({ variant, size, className }))}>
+        <Link
+          href={href}
+          target={target}
+          rel={rel}
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref as React.Ref<HTMLAnchorElement>} // Explizite Typ-Assertion für <Link>
+        >
           {props.children}
         </Link>
       );
@@ -51,7 +57,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
       return (
         <span
           className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref as React.Ref<HTMLSpanElement>}
+          ref={ref as React.Ref<HTMLSpanElement>} // Explizite Typ-Assertion für <span>
           {...(props as React.HTMLAttributes<HTMLSpanElement>)}
         />
       );
@@ -59,7 +65,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
+        ref={ref as React.Ref<HTMLButtonElement>} // Explizite Typ-Assertion für <button>
         {...props}
       />
     );
