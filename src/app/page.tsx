@@ -279,7 +279,7 @@ export default function HomePage() {
                   className={btnPrimary}
                   aria-label="Get CryptoPulse Pro"
                 >
-                  Get CryptoPulse Pro – $197
+                  Get CryptoPulse Pro
                 </Link>
               </div>
             </div>
