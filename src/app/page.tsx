@@ -272,12 +272,13 @@ export default function HomePage() {
             <div className="maestro-card rounded-2xl p-8 flex flex-col">
               <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
               <div className="space-y-4 text-gray-300">
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Loads 1-minute candle data from Binance API with failover endpoints</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Custom thresholds: 0.1% to 10% price movements</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP with easy expansion</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Automatic data cleaning & timezone conversion</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Export to HTML & CSV for further analysis</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Market Intelligence Engine with redundant data streams and error correction</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Precision Timing Analytics for optimal entry/exit point identification
+</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Configurable Risk Parameters from conservative to aggressive trading styles</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Cross-Asset Volatility Mapping across major cryptocurrency pairs</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Professional Export Functions for strategy development and backtesting</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Instant Deployment with plug-and-play setup for immediate results</div>
               </div>
               <div className={cardCtaWrap}>
                 <Link
