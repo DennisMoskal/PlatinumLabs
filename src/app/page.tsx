@@ -1,6 +1,9 @@
 "use client"
 
-import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"
+import {
+  Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity,
+  BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock
+} from "lucide-react"
 import Link from "next/link"
 
 // Typ für sichere Icon-Komponenten
@@ -15,96 +18,72 @@ interface TradingTool {
 export default function HomePage() {
   // Einheitlicher Button (schmal, fokussierbar, Hover/Active)
   const btnBase =
-    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold cursor-pointer " +
+    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold " +
+    "cursor-pointer pointer-events-auto " + // <- erzwingt Klickbarkeit
     "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all " +
     "px-3 py-1"
 
   // Bot-Daten (externe Weiterleitungen → <a>)
   const tradingBots = [
-    {
-      id: "maestro",
-      name: "Maestro Bot",
+    { id: "maestro", name: "Maestro Bot",
       description:
         "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Protection, Call-Channel-Sniping, Wallet-Tools.",
       recommendation: "Great for Cross-Chain Bridging",
       tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
       icon: Bot,
       featured: true,
-      link: "https://t.me/maestro?start=r-schmied0815",
-    },
-    {
-      id: "bullx",
-      name: "BullX",
+      link: "https://t.me/maestro?start=r-schmied0815" },
+    { id: "bullx", name: "BullX",
       description:
         "Multi-Chain trading via Telegram & Web. Fast execution, Limit Orders, Pump-Vision, Multi-Wallet, Live-Charts — ideal for active trading.",
       recommendation: "Best for Limit Orders & Charts",
       tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
       icon: TrendingUp,
-      link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia",
-    },
-    {
-      id: "solsniperx",
-      name: "SolSniper X",
+      link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia" },
+    { id: "solsniperx", name: "SolSniper X",
       description:
         "High-speed sniping on Solana. Auto-buy new tokens, Rug filter, LP burn checks, real-time logs — built for early entries.",
       recommendation: "Early SOL Snipes",
       tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
       icon: Target,
-      link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk",
-    },
-    {
-      id: "bonkbot",
-      name: "BONKbot",
+      link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk" },
+    { id: "bonkbot", name: "BONKbot",
       description:
         "Lightning-fast Solana trading with Jupiter routing, MEV protection, limit orders, auto-buys & portfolio tracking. Huge community, high volume.",
       recommendation: "Top Pick on Solana",
       tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
       icon: Zap,
-      link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre",
-    },
-    {
-      id: "blum",
-      name: "Blum",
+      link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre" },
+    { id: "blum", name: "Blum",
       description:
         "Multichain bot (TON, Solana, BNB). On-chain sniping, Terminal UI, limit orders, bridge, wallet management, P&L reports.",
       recommendation: "TON-First Multichain Terminal",
       tags: ["TON", "Solana", "BNB", "Terminal-UI"],
       icon: Bot,
-      link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi",
-    },
-    {
-      id: "soltradingbot",
-      name: "SolTradingBot",
+      link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" },
+    { id: "soltradingbot", name: "SolTradingBot",
       description:
         "Solana-focused with Jupiter/Orca/Raydium integration, copy trading, limit/DCA orders, and backup bots under heavy network load.",
       recommendation: "Robust Jupiter/Orca Routing",
       tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
       icon: Copy,
-      link: "https://t.me/SolTradingBot?start=jOXoZ6gZY",
-    },
-    {
-      id: "hector",
-      name: "Hector Trojan Bot",
+      link: "https://t.me/SolTradingBot?start=jOXoZ6gZY" },
+    { id: "hector", name: "Hector Trojan Bot",
       description:
         "AI-powered strategies, hidden-gem scanning, and fast execution directly in a Telegram bot. Non-custodial and Solana-focused.",
       recommendation: "AI-Driven Gem Scanning",
       tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
       icon: Brain,
-      link: "https://t.me/hector_trojanbot?start=r-schmied0815",
-    },
-    {
-      id: "tradewiz",
-      name: "TradeWiz",
+      link: "https://t.me/hector_trojanbot?start=r-schmied0815" },
+    { id: "tradewiz", name: "TradeWiz",
       description:
         "Ultra-fast copy trading (<2s), smart-wallet recognition, rule-based automation, DCA/limit support.",
       recommendation: "Ultra-Fast Copy Trading",
       tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
       icon: Shield,
-      link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L",
-    },
+      link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L" },
   ]
 
-  // Trading Tools
   const tradingTools: TradingTool[] = [
     { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
     { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated trading strategies.", icon: Brain },
@@ -134,14 +113,36 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="maestro-main-bg relative">
-      {/* Hintergrund-Effekte – blockieren keine Klicks */}
-      <div className="maestro-tech-grid pointer-events-none -z-10" />
-      <div className="maestro-floating-particles pointer-events-none -z-10" />
-      <div className="maestro-circuit-overlay pointer-events-none -z-10" />
-      <div className="maestro-glow-orb pointer-events-none -z-10" />
-      <div className="maestro-glow-orb pointer-events-none -z-10" />
-      <div className="maestro-glow-orb pointer-events-none -z-10" />
+    <div className="maestro-main-bg relative isolate"> {/* isolate = eigener Stacking-Context */}
+      {/* **HARTE** Schutz-Overrides gegen globale Konflikte */}
+      <style jsx global>{`
+        /* Alle dekorativen Layer dürfen NIE Klicks blockieren */
+        .maestro-tech-grid,
+        .maestro-floating-particles,
+        .maestro-circuit-overlay,
+        .maestro-glow-orb,
+        .maestro-hero-bg {
+          pointer-events: none !important;
+          z-index: -1 !important;
+          position: absolute; /* falls anders gesetzt */
+          inset: 0 auto auto 0; /* defensiv */
+        }
+        /* Buttons/Links müssen immer klickbar sein */
+        .maestro-btn,
+        a.maestro-btn,
+        a[href],
+        button {
+          pointer-events: auto !important;
+        }
+      `}</style>
+
+      {/* Background Effects */}
+      <div className="maestro-tech-grid" />
+      <div className="maestro-floating-particles" />
+      <div className="maestro-circuit-overlay" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
 
       {/* Navigation */}
       <nav className="maestro-nav border-b border-purple-500/20 backdrop-blur-sm sticky top-0 z-50">
@@ -154,13 +155,12 @@ export default function HomePage() {
               </div>
               <span className="text-2xl font-bold text-white maestro-text-glow">PlatinumLabs</span>
             </div>
-
-            {/* Für Sektionen (Hash-Links) -> <a> */}
             <div className="hidden md:flex items-center space-x-8">
+              {/* Hash-Links als <a> */}
               <a href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</a>
               <a href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</a>
               <a href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</a>
-              {/* Interne Seitenrouten dürfen Link bleiben */}
+              {/* interne Routen dürfen Link bleiben */}
               <Link href="/legal/impressum" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Legal</Link>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="maestro-hero-bg pointer-events-none absolute inset-0 -z-10" />
+        <div className="maestro-hero-bg" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
@@ -291,9 +291,6 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Professional Trading Tools</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A comprehensive suite for strategic crypto, DeFi, and multi-asset investing.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
@@ -352,7 +349,13 @@ export default function HomePage() {
 
                   {/* Button fix unten */}
                   <div className="mt-auto flex justify-center">
-                    <a href={bot.link} target="_blank" rel="noreferrer" className={btnBase} aria-label={`Launch ${bot.name} on Telegram`}>
+                    <a
+                      href={bot.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={btnBase}
+                      aria-label={`Launch ${bot.name} on Telegram`}
+                    >
                       Launch on Telegram
                     </a>
                   </div>
