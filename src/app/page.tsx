@@ -19,13 +19,16 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Einheitlicher CTA-Look (wie dein „Get CryptoPulse Pro“-Button), schlank + Hover/Active
+// Fixed button styles - removed conflicts and improved functionality
 const btnPrimary =
-  "maestro-btn text-white rounded-xl px-5 py-2 text-base font-medium " +
-  "hover:brightness-110 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition-all"
+  "inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white " +
+  "rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-in-out " +
+  "hover:from-purple-500 hover:to-blue-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 " +
+  "active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent " +
+  "relative z-20 cursor-pointer no-underline"
 
-// Für zentrierte CTA-Position unten in Cards
-const cardCtaWrap = "mt-auto flex justify-center"
+// Container for centered CTAs at bottom of cards
+const cardCtaWrap = "mt-auto pt-4 flex justify-center"
 
 // 7 wichtigste Chains inkl. TON
 const supportedChains = [
@@ -48,7 +51,7 @@ const heroFeatures = [
   "Multi-Chain & Lightning",
 ]
 
-// Bot-Daten + funktionierende interne Weiterleitungen
+// Bot-Daten mit korrigierten Affiliate-Links
 const tradingBots = [
   {
     id: "maestro",
@@ -59,7 +62,7 @@ const tradingBots = [
     tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
     icon: Bot,
     featured: true,
-    link: "/api/go/maestro",
+    link: "https://t.me/maestro?start=r-schmied0815",
   },
   {
     id: "bullx",
@@ -69,7 +72,7 @@ const tradingBots = [
     recommendation: "Best for Limit Orders & Charts",
     tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
     icon: TrendingUp,
-    link: "/api/go/bullx",
+    link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia",
   },
   {
     id: "solsniperx",
@@ -79,7 +82,7 @@ const tradingBots = [
     recommendation: "Early SOL Snipes",
     tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
     icon: Target,
-    link: "/api/go/solsniperx",
+    link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk",
   },
   {
     id: "bonkbot",
@@ -89,7 +92,7 @@ const tradingBots = [
     recommendation: "Top Pick on Solana",
     tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
     icon: Zap,
-    link: "/api/go/bonkbot",
+    link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre",
   },
   {
     id: "blum",
@@ -99,7 +102,7 @@ const tradingBots = [
     recommendation: "TON-First Multichain Terminal",
     tags: ["TON", "Solana", "BNB", "Terminal-UI"],
     icon: Bot,
-    link: "/api/go/blum",
+    link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi",
   },
   {
     id: "soltradingbot",
@@ -109,7 +112,7 @@ const tradingBots = [
     recommendation: "Robust Jupiter/Orca Routing",
     tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
     icon: Copy,
-    link: "/api/go/soltradingbot",
+    link: "https://t.me/SolTradingBot?start=jOXoZ6gZY",
   },
   {
     id: "hector",
@@ -119,7 +122,7 @@ const tradingBots = [
     recommendation: "AI-Driven Gem Scanning",
     tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
     icon: Brain,
-    link: "/api/go/hector",
+    link: "https://t.me/hector_trojanbot?start=r-schmied0815",
   },
   {
     id: "tradewiz",
@@ -129,7 +132,32 @@ const tradingBots = [
     recommendation: "Ultra-Fast Copy Trading",
     tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
     icon: Shield,
-    link: "/api/go/tradewiz",
+    link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L",
+  },
+]
+
+// Bridging Bots - matching the main bot card layout
+const bridgingBots = [
+  {
+    id: "maestro-bridge",
+    name: "Maestro Bot",
+    description:
+      "Multichain bridging with Houdini for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.",
+    recommendation: "Best for Cross-Chain",
+    tags: ["Multichain", "Houdini", "Non-Custodial", "Low Fees"],
+    icon: Bot,
+    featured: true,
+    link: "https://t.me/maestro?start=r-schmied0815",
+  },
+  {
+    id: "blum-bridge",
+    name: "Blum Bot",
+    description:
+      "Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.",
+    recommendation: "TON-First Bridge",
+    tags: ["TON", "Solana", "BNB", "Terminal-UI"],
+    icon: Activity,
+    link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi",
   },
 ]
 
@@ -145,7 +173,7 @@ const tradingTools = [
 export default function HomePage() {
   return (
     <div className="maestro-main-bg">
-      {/* Background Effects – dürfen NIE Klicks blockieren */}
+      {/* Background Effects – fixed with pointer-events-none */}
       <div className="maestro-tech-grid pointer-events-none" />
       <div className="maestro-floating-particles pointer-events-none" />
       <div className="maestro-circuit-overlay pointer-events-none" />
@@ -228,7 +256,7 @@ export default function HomePage() {
 
       {/* CryptoPulse Pro */}
       <section id="cryptopulse" className="py-20 maestro-section-alt">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">CryptoPulse Pro</h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -246,7 +274,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
             </div>
-            <div className="mt-8 flex justify-center">
+            <div className={cardCtaWrap}>
               <Link
                 href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
                 target="_blank"
@@ -299,7 +327,7 @@ export default function HomePage() {
 
       {/* Tools */}
       <section id="tools" className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Professional Trading Tools</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -327,7 +355,7 @@ export default function HomePage() {
 
       {/* Bots */}
       <section id="bots" className="py-20 maestro-section-alt">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading Bots</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -339,11 +367,11 @@ export default function HomePage() {
             {tradingBots.map((bot) => (
               <Card
                 key={bot.id}
-                className={`maestro-card h-full flex flex-col transition-all duration-300 ${
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
                   bot.featured ? "ring-2 ring-purple-500/40" : ""
                 }`}
               >
-                <CardHeader>
+                <CardHeader className="relative z-20">
                   <div className="flex items-center justify-between">
                     <bot.icon className="h-8 w-8 text-purple-400" />
                     <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
@@ -353,7 +381,7 @@ export default function HomePage() {
                   <CardTitle className="text-white">{bot.name}</CardTitle>
                 </CardHeader>
 
-                <CardContent className="flex flex-col grow space-y-4">
+                <CardContent className="flex flex-col grow space-y-4 relative z-20">
                   <CardDescription className="text-gray-300">{bot.description}</CardDescription>
                   <div className="flex flex-wrap gap-1">
                     {bot.tags.map((tag) => (
@@ -363,9 +391,15 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA unten mittig, gleicher Button-Look */}
+                  {/* CTA unten mittig */}
                   <div className={cardCtaWrap}>
-                    <Link href={bot.link} className={btnPrimary} aria-label={`Launch ${bot.name} on Telegram`}>
+                    <Link 
+                      href={bot.link} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={btnPrimary} 
+                      aria-label={`Launch ${bot.name} on Telegram`}
+                    >
                       Launch on Telegram
                     </Link>
                   </div>
@@ -376,9 +410,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bridging */}
+      {/* Bridging - Updated to match bot card layout */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-3xl font-bold text-white mb-4 maestro-text-glow">Our Bridging Bots</h3>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -386,54 +420,51 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="maestro-card h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-white">Maestro Bot</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4">
-                <p className="text-gray-300">
-                  Multichain bridging with Houdini for optimized routes. Supports Ethereum, Solana, BSC and more — ideal
-                  for beginners and professionals.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Multichain</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Houdini</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
-                </div>
-                <div className={cardCtaWrap}>
-                  <Link href="/api/go/maestro" className={btnPrimary} aria-label="Start Bridging via Maestro">
-                    Start Bridging via Maestro
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            {bridgingBots.map((bot) => (
+              <Card
+                key={bot.id}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
+                  bot.featured ? "ring-2 ring-purple-500/40" : ""
+                }`}
+              >
+                <CardHeader className="relative z-20">
+                  <div className="flex items-center justify-between">
+                    <bot.icon className="h-8 w-8 text-purple-400" />
+                    <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                      {bot.recommendation}
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-white">{bot.name}</CardTitle>
+                </CardHeader>
 
-            <Card className="maestro-card h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-white">Blum Bot</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4">
-                <p className="text-gray-300">
-                  Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">TON</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Solana</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
-                </div>
-                <div className={cardCtaWrap}>
-                  <Link href="/api/go/blum" className={btnPrimary} aria-label="Start Bridging via Blum">
-                    Start Bridging via Blum
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+                <CardContent className="flex flex-col grow space-y-4 relative z-20">
+                  <CardDescription className="text-gray-300">{bot.description}</CardDescription>
+                  <div className="flex flex-wrap gap-1">
+                    {bot.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="bg-white/10 text-gray-200 text-xs border-white/10">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className={cardCtaWrap}>
+                    <Link 
+                      href={bot.link} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={btnPrimary} 
+                      aria-label={`Start Bridging via ${bot.name}`}
+                    >
+                      Start Bridging
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-12">
             <Link href="#bots" className={btnPrimary} aria-label="Discover All Trading Bots">
               Discover All Trading Bots
             </Link>
