@@ -1,6 +1,8 @@
 "use client"
 
-import { BarChart3, Brain, Shield, Activity, Target, Lock } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"
 import Link from "next/link"
 
 // Type für tradingTools (sichere Icon-Rendering)
@@ -9,10 +11,16 @@ type LucideIcon = React.ComponentType<{ className?: string; size?: number | stri
 interface TradingTool {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: LucideIcon; // Expliziter Typ für Icon
 }
 
 export default function HomePage() {
+  // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
+  const btnBase =
+    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold " +
+    "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all " +
+    "px-3 py-1" // Reduzierte Padding-Werte für schmalere Buttons
+
   // Bot-Daten mit Affiliate-Weiterleitungen
   const tradingBots = [
     {
@@ -230,48 +238,54 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8 flex justify-center">
-                <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer" className="maestro-btn">
+                <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer" className={btnBase}>
                   Get CryptoPulse Pro – $197
                 </Link>
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="maestro-card">
-                <div className="p-6">
-                  <h3 className="text-white flex items-center">
+              <Card className="maestro-card">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
                     <BarChart3 className="mr-2 h-5 w-5 text-purple-400" />
                     Statistical Analysis
-                  </h3>
-                  <p className="text-gray-300 mt-2">
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">
                     Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.
                   </p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
 
-              <div className="maestro-card">
-                <div className="p-6">
-                  <h3 className="text-white flex items-center">
+              <Card className="maestro-card">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
                     <Brain className="mr-2 h-5 w-5 text-blue-400" />
                     Customizable Parameters
-                  </h3>
-                  <p className="text-gray-300 mt-2">
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">
                     Tune thresholds and probability filters to match your strategy for optimal results.
                   </p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
 
-              <div className="maestro-card">
-                <div className="p-6">
-                  <h3 className="text-white flex items-center">
+              <Card className="maestro-card">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
                     <Target className="mr-2 h-5 w-5 text-purple-400" />
                     Professional Reports
-                  </h3>
-                  <p className="text-gray-300 mt-2">
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">
                     Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.
                   </p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -289,15 +303,17 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tradingTools.map((tool, index) => (
-              <div key={index} className="maestro-card transition-colors">
-                <div className="p-6">
-                  <h3 className="text-white flex items-center">
+              <Card key={index} className="maestro-card transition-colors">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
                     <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
                     {tool.title}
-                  </h3>
-                  <p className="text-gray-300 mt-2">{tool.description}</p>
-                </div>
-              </div>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{tool.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -315,32 +331,32 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {tradingBots.map((bot) => (
-              <div key={bot.id} className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}>
-                <div className="p-6">
+              <Card key={bot.id} className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}>
+                <CardHeader>
                   <div className="flex items-center justify-between">
                     <bot.icon className="h-8 w-8 text-purple-400" />
-                    <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-2 py-1 rounded text-sm">
+                    <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
                       {bot.recommendation}
-                    </span>
+                    </Badge>
                   </div>
-                  <h3 className="text-white mt-2">{bot.name}</h3>
-                </div>
-                <div className="p-6 flex flex-col grow space-y-4 h-full">
-                  <p className="text-gray-300">{bot.description}</p>
+                  <CardTitle className="text-white">{bot.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col grow space-y-4 h-full">
+                  <CardDescription className="text-gray-300">{bot.description}</CardDescription>
                   <div className="flex flex-wrap gap-1">
                     {bot.tags.map((tag) => (
-                      <span key={tag} className="bg-white/10 text-gray-200 text-xs border-white/10 px-2 py-1 rounded">
+                      <Badge key={tag} variant="secondary" className="bg-white/10 text-gray-200 text-xs border-white/10">
                         {tag}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                   <div className="mt-auto flex justify-center">
-                    <Link href={bot.link} target="_blank" rel="noreferrer" className="maestro-btn">
+                    <Link href={bot.link} target="_blank" rel="noreferrer" className={btnBase}>
                       Launch on Telegram
                     </Link>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -357,53 +373,53 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="maestro-card h-full flex flex-col">
-              <div className="p-6">
-                <h3 className="text-white">Maestro Bot</h3>
-              </div>
-              <div className="p-6 flex flex-col grow space-y-4 h-full">
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white">Maestro Bot</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col grow space-y-4 h-full">
                 <p className="text-gray-300">
                   Multichain bridging with Houdini integration for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Multichain</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Houdini</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Non-Custodial</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Low Fees</span>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Multichain</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Houdini</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className="maestro-btn">
+                  <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Maestro
                   </Link>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            <div className="maestro-card h-full flex flex-col">
-              <div className="p-6">
-                <h3 className="text-white">Blum Bot</h3>
-              </div>
-              <div className="p-6 flex flex-col grow space-y-4 h-full">
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white">Blum Bot</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col grow space-y-4 h-full">
                 <p className="text-gray-300">
                   Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">TON</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Solana</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">BNB</span>
-                  <span className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Terminal-UI</span>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">TON</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Solana</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
+                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className="maestro-btn">
+                  <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Blum
                   </Link>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="text-center">
-            <Link href="#bots" className="maestro-btn">
+            <Link href="#bots" className={btnBase}>
               Discover All Trading Bots
             </Link>
           </div>
