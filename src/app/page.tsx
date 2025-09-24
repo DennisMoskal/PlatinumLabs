@@ -24,6 +24,12 @@ import {
   BarChart3,
   Lock,
   Sparkles,
+  Clock,
+  Database,
+  TrendingDown,
+  Settings,
+  FileText,
+  Users,
 } from "lucide-react"
 
 /** Exakt derselbe Look wie der CryptoPulse-Button (Styles in global.css: a.btn-primary) */
@@ -251,25 +257,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CryptoPulse Pro */}
+      {/* CryptoPulse Pro - Enhanced Section */}
       <section id="cryptopulse" className="py-20 maestro-section-alt">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">CryptoPulse Pro</h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Advanced cryptocurrency volatility analysis with customizable parameters for professional traders.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Advanced cryptocurrency volatility analysis with hour-based probability calculations. 
+              A comprehensive tool for data-driven trading decisions using historical volatility patterns.
             </p>
           </div>
 
-           <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <div className="maestro-card rounded-2xl p-8 flex flex-col">
               <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
               <div className="space-y-4 text-gray-300">
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
-                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Loads 1-minute candle data from Binance API with failover endpoints</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Custom thresholds: 0.1% to 10% price movements</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP with easy expansion</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Automatic data cleaning & timezone conversion</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Export to HTML & CSV for further analysis</div>
               </div>
               <div className={cardCtaWrap}>
                 <Link
@@ -286,9 +294,21 @@ export default function HomePage() {
 
             <div className="space-y-6">
               {[
-                { title: "Statistical Analysis", icon: BarChart3, text: "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour." },
-                { title: "Customizable Parameters", icon: Brain, text: "Tune thresholds and probability filters to match your strategy for optimal results." },
-                { title: "Professional Reports", icon: Target, text: "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders." },
+                { 
+                  title: "Core Data Processing", 
+                  icon: Database, 
+                  text: "Loads 1-minute candle data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis." 
+                },
+                { 
+                  title: "Hourly Volatility Analysis", 
+                  icon: Clock, 
+                  text: "Calculates percentage price changes per hour and identifies movements above configurable thresholds (default 0.1%). Categorizes movements as 'Upward' or 'Downward' grouped by weekday and hour." 
+                },
+                { 
+                  title: "Statistical Probability Engine", 
+                  icon: BarChart3, 
+                  text: "Determines statistical probability for price movements based on historical data (1-12 months). Creates detailed probability profiles for each weekday-hour combination with precise accuracy." 
+                },
               ].map((b) => (
                 <Card key={b.title} className="maestro-card h-full flex flex-col">
                   <CardHeader>
@@ -303,6 +323,147 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
+          </div>
+
+          {/* New Enhanced Use Cases Section */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <TrendingUp className="mr-2 h-5 w-5 text-green-400" />
+                  Trading & Investment
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Timing Strategies:</strong> Identify optimal entry and exit times</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Risk Management:</strong> Predict volatile trading phases</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Algorithmic Trading:</strong> Data foundation for automated systems</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Portfolio Optimization:</strong> Time reallocations based on volatility patterns</div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <BarChart3 className="mr-2 h-5 w-5 text-blue-400" />
+                  Market Analysis
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Pattern Recognition:</strong> Detect recurring market cycles</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Seasonality Analysis:</strong> Weekday and time-specific trends</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Market Research:</strong> Compare volatility patterns across assets</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Academic Research:</strong> Crypto market behavior studies</div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <Target className="mr-2 h-5 w-5 text-purple-400" />
+                  Practical Applications
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Day Trading:</strong> Optimize trading hours for maximum profit</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Swing Trading:</strong> Identify probable turning points</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>DCA Strategies:</strong> Time Dollar-Cost-Averaging purchases</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                  <div><strong>Stop-Loss Placement:</strong> Better positioning based on volatility expectations</div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* New Developer & Trader Focus Section */}
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <Brain className="mr-2 h-5 w-5 text-cyan-400" />
+                  For Algorithmic Developers
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Backtest multiple parameter sets with historical data</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Recognize statistical advantages in market patterns</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Adapt analysis to specific trading strategies</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Develop trading bots with statistically-founded decisions</div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="maestro-card h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <Users className="mr-2 h-5 w-5 text-orange-400" />
+                  For Active Traders
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Find high-probability trading windows with precise timing</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Adjust parameters for personalized risk management</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Export data for further analysis and strategy development</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
+                  <div>Generate market reports and forecasts for informed decisions</div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
