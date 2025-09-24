@@ -1,3 +1,4 @@
+// page.tsx
 "use client"
 
 import Link from "next/link"
@@ -19,18 +20,14 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Schlankere Button-Styles (angepasste Polsterung & Typografie, kollisionsfrei)
+/** Einheitlicher Primary-Button – exakt wie CryptoPulse */
 const btnPrimary =
-  "inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white " +
-  "rounded-lg px-3.5 py-2 text-[13px] md:text-sm font-medium leading-none transition-all duration-200 ease-in-out " +
-  "hover:from-purple-500 hover:to-blue-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 " +
-  "active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent " +
-  "relative z-20 cursor-pointer no-underline select-none"
+  "btn-primary inline-flex items-center justify-center relative z-20 cursor-pointer no-underline select-none"
 
-// Einheitlicher CTA-Container am Kartenende
+/** CTA-Wrapper fix am unteren Kartenrand (gleiche Höhe in allen Cards) */
 const cardCtaWrap = "mt-auto pt-4 flex justify-center"
 
-// 7 wichtigste Chains inkl. TON
+/** Chains */
 const supportedChains = [
   { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
   { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -41,7 +38,6 @@ const supportedChains = [
   { name: "TON", icon: "◈", color: "from-cyan-400 to-sky-600" },
 ]
 
-// Inline Features (Punkt + Begriff)
 const heroFeatures = [
   "Multi-Wallet Sniping",
   "Smart Gas & Slippage",
@@ -51,7 +47,7 @@ const heroFeatures = [
   "Multi-Chain & Lightning",
 ]
 
-// Bot-Daten mit korrigierten Affiliate-Links
+/** Trading Bots */
 const tradingBots = [
   {
     id: "maestro",
@@ -136,7 +132,7 @@ const tradingBots = [
   },
 ]
 
-// Bridging Bots – exakt gleiche Karten- und Grid-Logik wie oben
+/** Bridging Bots */
 const bridgingBots = [
   {
     id: "maestro-bridge",
@@ -173,20 +169,19 @@ const tradingTools = [
 export default function HomePage() {
   return (
     <div className="maestro-main-bg">
-      {/* Background Effects – fixed with pointer-events-none */}
-      <div className="maestro-tech-grid pointer-events-none" />
-      <div className="maestro-floating-particles pointer-events-none" />
-      <div className="maestro-circuit-overlay pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
+      {/* Background Effects */}
+      <div className="maestro-tech-grid" />
+      <div className="maestro-floating-particles" />
+      <div className="maestro-circuit-overlay" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
 
       {/* Navigation */}
       <nav className="maestro-nav border-b border-purple-500/20 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center space-x-3">
-              {/* Farbiger Kasten mit zwei Icons */}
               <div className="maestro-logo-glow w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center gap-1">
                 <FlaskConical className="h-5 w-5 text-white" />
                 <CircuitBoard className="h-5 w-5 text-white" />
@@ -205,7 +200,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="maestro-hero-bg absolute inset-0 pointer-events-none" />
+        <div className="maestro-hero-bg absolute inset-0" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
@@ -241,7 +236,7 @@ export default function HomePage() {
               <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
             </div>
 
-            {/* Feature-Liste: Punkt + Begriff */}
+            {/* Feature list */}
             <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
               {heroFeatures.map((f) => (
                 <li key={f} className="flex items-center">
@@ -289,34 +284,19 @@ export default function HomePage() {
 
             <div className="space-y-6">
               {[
-                {
-                  title: "Statistical Analysis",
-                  icon: BarChart3,
-                  text:
-                    "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
-                },
-                {
-                  title: "Customizable Parameters",
-                  icon: Brain,
-                  text:
-                    "Tune thresholds and probability filters to match your strategy for optimal results.",
-                },
-                {
-                  title: "Professional Reports",
-                  icon: Target,
-                  text:
-                    "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
-                },
+                { title: "Statistical Analysis", icon: BarChart3, text: "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour." },
+                { title: "Customizable Parameters", icon: Brain, text: "Tune thresholds and probability filters to match your strategy for optimal results." },
+                { title: "Professional Reports", icon: Target, text: "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders." },
               ].map((b) => (
-                <Card key={b.title} className="maestro-card">
+                <Card key={b.title} className="maestro-card h-full flex flex-col">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center">
                       <b.icon className="mr-2 h-5 w-5 text-purple-400" />
                       {b.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-300">{b.text}</p>
+                  <CardContent className="text-gray-300">
+                    <p>{b.text}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -337,15 +317,15 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tradingTools.map((tool) => (
-              <Card key={tool.title} className="maestro-card transition-colors h-full">
+              <Card key={tool.title} className="maestro-card h-full flex flex-col">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
                     {tool.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{tool.description}</p>
+                <CardContent className="text-gray-300">
+                  <p>{tool.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -367,9 +347,7 @@ export default function HomePage() {
             {tradingBots.map((bot) => (
               <Card
                 key={bot.id}
-                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
-                  bot.featured ? "ring-2 ring-purple-500/40" : ""
-                }`}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
               >
                 <CardHeader className="relative z-20">
                   <div className="flex items-center justify-between">
@@ -391,13 +369,13 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA unten mittig */}
+                  {/* Button fixiert unten – identischer Look wie CryptoPulse */}
                   <div className={cardCtaWrap}>
-                    <Link 
-                      href={bot.link} 
+                    <Link
+                      href={bot.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={btnPrimary} 
+                      className={btnPrimary}
                       aria-label={`Launch ${bot.name} on Telegram`}
                     >
                       Launch on Telegram
@@ -410,7 +388,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bridging – identisches Grid & Kartengerüst wie bei Bots */}
+      {/* Bridging – mittig zentriert, identische Kartengröße & Button-Position */}
       <section className="py-20">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -420,14 +398,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Gleiches Layout wie bei den Premium Trading Bots */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* WICHTIG: begrenzte Maxbreite + mx-auto, damit zwei Karten wirklich zentriert sind */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {bridgingBots.map((bot) => (
               <Card
                 key={bot.id}
-                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
-                  bot.featured ? "ring-2 ring-purple-500/40" : ""
-                }`}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
               >
                 <CardHeader className="relative z-20">
                   <div className="flex items-center justify-between">
@@ -449,13 +425,13 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* CTA unten mittig */}
+                  {/* Button fixiert unten – identischer Look */}
                   <div className={cardCtaWrap}>
-                    <Link 
-                      href={bot.link} 
+                    <Link
+                      href={bot.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={btnPrimary} 
+                      className={btnPrimary}
                       aria-label={`Start Bridging via ${bot.name}`}
                     >
                       Start Bridging
