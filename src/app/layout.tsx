@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Dennis Moskal" }],
   creator: "PlatinumLabs",
   publisher: "PlatinumLabs",
-  metadataBase: new URL('https://platinumlabs.netlify.app'),
+  metadataBase: new URL('https://platinumlabs.vercel.app'),
   alternates: {
-    canonical: '/',
+    canonical: 'https://platinumlabs.vercel.app/',
   },
   openGraph: {
     title: "PlatinumLabs - Trade Smarter",
     description: "Professional crypto trading tools, AI-powered bots, and advanced analytics for the modern DeFi trader.",
-    url: 'https://platinumlabs.netlify.app',
+    url: 'https://platinumlabs.vercel.app',
     siteName: 'PlatinumLabs',
     images: [
       {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code',
+    google: 'gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI',
   },
 };
 
@@ -69,8 +69,8 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "PlatinumLabs",
               "description": "Professional crypto trading tools and AI-powered solutions for the modern DeFi trader",
-              "url": "https://platinumlabs.netlify.app",
-              "logo": "https://platinumlabs.netlify.app/logo.png",
+              "url": "https://platinumlabs.vercel.app",
+              "logo": "https://platinumlabs.vercel.app/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+49-172-205-8855",
