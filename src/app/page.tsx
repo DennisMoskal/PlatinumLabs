@@ -1,8 +1,14 @@
-// page.tsx
 "use client"
 
 import Link from "next/link"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   FlaskConical,
@@ -20,14 +26,12 @@ import {
   Sparkles,
 } from "lucide-react"
 
-/** Einheitlicher Primary-Button – exakt wie CryptoPulse */
-const btnPrimary =
-  "btn-primary inline-flex items-center justify-center relative z-20 cursor-pointer no-underline select-none"
+/** Exakt derselbe Look wie der CryptoPulse-Button (Styles in global.css: a.btn-primary) */
+const btnPrimary = "btn-primary inline-flex items-center justify-center select-none"
 
-/** CTA-Wrapper fix am unteren Kartenrand (gleiche Höhe in allen Cards) */
-const cardCtaWrap = "mt-auto pt-4 flex justify-center"
+/** CTA-Wrapper (nur falls nötig – CardFooter übernimmt die Platzierung unten) */
+const cardCtaWrap = "flex justify-center w-full"
 
-/** Chains */
 const supportedChains = [
   { name: "Ethereum", icon: "⟠", color: "from-blue-400 to-blue-600" },
   { name: "Solana", icon: "◎", color: "from-purple-400 to-pink-600" },
@@ -47,7 +51,6 @@ const heroFeatures = [
   "Multi-Chain & Lightning",
 ]
 
-/** Trading Bots */
 const tradingBots = [
   {
     id: "maestro",
@@ -132,7 +135,6 @@ const tradingBots = [
   },
 ]
 
-/** Bridging Bots */
 const bridgingBots = [
   {
     id: "maestro-bridge",
@@ -260,27 +262,31 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="maestro-card rounded-2xl p-8 flex flex-col">
-              <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
-              <div className="space-y-4 text-gray-300">
+            <Card className="maestro-card rounded-2xl p-0 h-full flex flex-col">
+              <CardHeader className="p-8">
+                <h3 className="text-2xl font-semibold text-white">Professional-Grade Analysis</h3>
+              </CardHeader>
+              <CardContent className="px-8 pb-0 flex flex-col grow space-y-4 text-gray-300">
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
-              </div>
-              <div className={cardCtaWrap}>
-                <Link
-                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={btnPrimary}
-                  aria-label="Get CryptoPulse Pro"
-                >
-                  Get CryptoPulse Pro – $197
-                </Link>
-              </div>
-            </div>
+              </CardContent>
+              <CardFooter className="mt-auto p-8 pt-4">
+                <div className={cardCtaWrap}>
+                  <Link
+                    href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={btnPrimary}
+                    aria-label="Get CryptoPulse Pro"
+                  >
+                    Get CryptoPulse Pro – $197
+                  </Link>
+                </div>
+              </CardFooter>
+            </Card>
 
             <div className="space-y-6">
               {[
@@ -338,16 +344,15 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading Bots</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover advanced Telegram bots for sniping, copy trading, and automated DeFi strategies.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {tradingBots.map((bot) => (
               <Card
                 key={bot.id}
-                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
+                  bot.featured ? "ring-2 ring-purple-500/40" : ""
+                }`}
               >
                 <CardHeader className="relative z-20">
                   <div className="flex items-center justify-between">
@@ -368,8 +373,10 @@ export default function HomePage() {
                       </Badge>
                     ))}
                   </div>
+                </CardContent>
 
-                  {/* Button fixiert unten – identischer Look wie CryptoPulse */}
+                {/* Button fix & gleiche Höhe in allen Cards */}
+                <CardFooter className="mt-auto">
                   <div className={cardCtaWrap}>
                     <Link
                       href={bot.link}
@@ -381,14 +388,14 @@ export default function HomePage() {
                       Launch on Telegram
                     </Link>
                   </div>
-                </CardContent>
+                </CardFooter>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bridging – mittig zentriert, identische Kartengröße & Button-Position */}
+      {/* Bridging – mittig zentriert, identische Card-Struktur */}
       <section className="py-20">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -398,12 +405,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* WICHTIG: begrenzte Maxbreite + mx-auto, damit zwei Karten wirklich zentriert sind */}
+          {/* Maxbreite + mx-auto -> zwei Karten wirklich mittig */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {bridgingBots.map((bot) => (
               <Card
                 key={bot.id}
-                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
+                  bot.featured ? "ring-2 ring-purple-500/40" : ""
+                }`}
               >
                 <CardHeader className="relative z-20">
                   <div className="flex items-center justify-between">
@@ -424,8 +433,9 @@ export default function HomePage() {
                       </Badge>
                     ))}
                   </div>
+                </CardContent>
 
-                  {/* Button fixiert unten – identischer Look */}
+                <CardFooter className="mt-auto">
                   <div className={cardCtaWrap}>
                     <Link
                       href={bot.link}
@@ -437,7 +447,7 @@ export default function HomePage() {
                       Start Bridging
                     </Link>
                   </div>
-                </CardContent>
+                </CardFooter>
               </Card>
             ))}
           </div>
