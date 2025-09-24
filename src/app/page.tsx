@@ -261,32 +261,28 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <Card className="maestro-card rounded-2xl p-0 h-full flex flex-col">
-              <CardHeader className="p-8">
-                <h3 className="text-2xl font-semibold text-white">Professional-Grade Analysis</h3>
-              </CardHeader>
-              <CardContent className="px-8 pb-0 flex flex-col grow space-y-4 text-gray-300">
+           <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="maestro-card rounded-2xl p-8 flex flex-col">
+              <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
+              <div className="space-y-4 text-gray-300">
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
-              </CardContent>
-              <CardFooter className="mt-auto p-8 pt-4">
-                <div className={cardCtaWrap}>
-                  <Link
-                    href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={btnPrimary}
-                    aria-label="Get CryptoPulse Pro"
-                  >
-                    Get CryptoPulse Pro – $197
-                  </Link>
-                </div>
-              </CardFooter>
-            </Card>
+              </div>
+              <div className={cardCtaWrap}>
+                <Link
+                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={btnPrimary}
+                  aria-label="Get CryptoPulse Pro"
+                >
+                  Get CryptoPulse Pro – $197
+                </Link>
+              </div>
+            </div>
 
             <div className="space-y-6">
               {[
