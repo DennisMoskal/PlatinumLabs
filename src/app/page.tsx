@@ -3,23 +3,23 @@
 import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"
 import Link from "next/link"
 
-// Type für tradingTools (sichere Icon-Rendering)
-type LucideIcon = React.ComponentType<{ className?: string; size?: number | string }>;
+// Typ für sichere Icon-Komponenten
+type LucideIcon = React.ComponentType<{ className?: string; size?: number | string }>
 
 interface TradingTool {
-  title: string;
-  description: string;
-  icon: LucideIcon;
+  title: string
+  description: string
+  icon: LucideIcon
 }
 
 export default function HomePage() {
-  // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
+  // Einheitlicher Button (schmal, fokussierbar, Hover/Active)
   const btnBase =
-    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold " +
+    "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold cursor-pointer " +
     "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all " +
-    "px-3 py-1" // Reduzierte Padding-Werte für schmalere Buttons
+    "px-3 py-1"
 
-  // Bot-Daten mit Affiliate-Weiterleitungen
+  // Bot-Daten (externe Weiterleitungen → <a>)
   const tradingBots = [
     {
       id: "maestro",
@@ -134,14 +134,14 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="maestro-main-bg">
-      {/* Background Effects */}
-      <div className="maestro-tech-grid pointer-events-none" />
-      <div className="maestro-floating-particles pointer-events-none" />
-      <div className="maestro-circuit-overlay pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
+    <div className="maestro-main-bg relative">
+      {/* Hintergrund-Effekte – blockieren keine Klicks */}
+      <div className="maestro-tech-grid pointer-events-none -z-10" />
+      <div className="maestro-floating-particles pointer-events-none -z-10" />
+      <div className="maestro-circuit-overlay pointer-events-none -z-10" />
+      <div className="maestro-glow-orb pointer-events-none -z-10" />
+      <div className="maestro-glow-orb pointer-events-none -z-10" />
+      <div className="maestro-glow-orb pointer-events-none -z-10" />
 
       {/* Navigation */}
       <nav className="maestro-nav border-b border-purple-500/20 backdrop-blur-sm sticky top-0 z-50">
@@ -154,10 +154,13 @@ export default function HomePage() {
               </div>
               <span className="text-2xl font-bold text-white maestro-text-glow">PlatinumLabs</span>
             </div>
+
+            {/* Für Sektionen (Hash-Links) -> <a> */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</Link>
-              <Link href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</Link>
-              <Link href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</Link>
+              <a href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</a>
+              <a href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</a>
+              <a href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</a>
+              {/* Interne Seitenrouten dürfen Link bleiben */}
               <Link href="/legal/impressum" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Legal</Link>
             </div>
           </div>
@@ -166,7 +169,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="maestro-hero-bg absolute inset-0" />
+        <div className="maestro-hero-bg pointer-events-none absolute inset-0 -z-10" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
@@ -226,7 +229,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="maestro-card rounded-2xl p-8">
+            <div className="maestro-card rounded-2xl p-8 h-full flex flex-col">
               <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
               <div className="space-y-4 text-gray-300">
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
@@ -236,14 +239,20 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8 flex justify-center">
-                <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer" className={btnBase}>
+                <a
+                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={btnBase}
+                  aria-label="Get CryptoPulse Pro – $197"
+                >
                   Get CryptoPulse Pro – $197
-                </Link>
+                </a>
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="maestro-card p-6">
+              <div className="maestro-card p-6 h-full">
                 <h3 className="text-white flex items-center">
                   <BarChart3 className="mr-2 h-5 w-5 text-purple-400" />
                   Statistical Analysis
@@ -253,7 +262,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="maestro-card p-6">
+              <div className="maestro-card p-6 h-full">
                 <h3 className="text-white flex items-center">
                   <Brain className="mr-2 h-5 w-5 text-blue-400" />
                   Customizable Parameters
@@ -263,7 +272,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="maestro-card p-6">
+              <div className="maestro-card p-6 h-full">
                 <h3 className="text-white flex items-center">
                   <Target className="mr-2 h-5 w-5 text-purple-400" />
                   Professional Reports
@@ -287,15 +296,16 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {tradingTools.map((tool, index) => (
-              <div key={index} className="maestro-card transition-colors">
-                <div className="p-6">
+              <div key={index} className="maestro-card transition-colors h-full flex flex-col">
+                <div className="p-6 flex flex-col grow">
                   <h3 className="text-white flex items-center">
                     <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
                     {tool.title}
                   </h3>
                   <p className="text-gray-300 mt-2">{tool.description}</p>
+                  <div className="mt-auto" />
                 </div>
               </div>
             ))}
@@ -313,9 +323,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
             {tradingBots.map((bot) => (
-              <div key={bot.id} className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}>
+              <div
+                key={bot.id}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
+              >
                 <div className="p-6">
                   <div className="flex items-center justify-between">
                     <bot.icon className="h-8 w-8 text-purple-400" />
@@ -325,8 +338,10 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-white mt-2">{bot.name}</h3>
                 </div>
-                <div className="p-6 flex flex-col grow space-y-4 h-full">
+
+                <div className="p-6 flex flex-col grow space-y-4">
                   <p className="text-gray-300">{bot.description}</p>
+
                   <div className="flex flex-wrap gap-1">
                     {bot.tags.map((tag) => (
                       <div key={tag} className="bg-white/10 text-gray-200 text-xs border-white/10 px-2 py-1 rounded">
@@ -334,10 +349,12 @@ export default function HomePage() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Button fix unten */}
                   <div className="mt-auto flex justify-center">
-                    <Link href={bot.link} target="_blank" rel="noreferrer" className={btnBase}>
+                    <a href={bot.link} target="_blank" rel="noreferrer" className={btnBase} aria-label={`Launch ${bot.name} on Telegram`}>
                       Launch on Telegram
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -356,12 +373,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12 items-stretch">
             <div className="maestro-card h-full flex flex-col">
               <div className="p-6">
                 <h3 className="text-white">Maestro Bot</h3>
               </div>
-              <div className="p-6 flex flex-col grow space-y-4 h-full">
+              <div className="p-6 flex flex-col grow space-y-4">
                 <p className="text-gray-300">
                   Multichain bridging with Houdini integration for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.
                 </p>
@@ -372,9 +389,9 @@ export default function HomePage() {
                   <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Low Fees</div>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
+                  <a href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Maestro
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -383,7 +400,7 @@ export default function HomePage() {
               <div className="p-6">
                 <h3 className="text-white">Blum Bot</h3>
               </div>
-              <div className="p-6 flex flex-col grow space-y-4 h-full">
+              <div className="p-6 flex flex-col grow space-y-4">
                 <p className="text-gray-300">
                   Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.
                 </p>
@@ -394,18 +411,18 @@ export default function HomePage() {
                   <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Terminal-UI</div>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
+                  <a href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Blum
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="text-center">
-            <Link href="#bots" className={btnBase}>
+            <a href="#bots" className={btnBase}>
               Discover All Trading Bots
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -430,9 +447,9 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Products</h4>
               <ul className="space-y-2">
-                <li><Link href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</Link></li>
-                <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</Link></li>
-                <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</Link></li>
+                <li><a href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</a></li>
+                <li><a href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</a></li>
+                <li><a href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</a></li>
               </ul>
             </div>
 
@@ -462,5 +479,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
