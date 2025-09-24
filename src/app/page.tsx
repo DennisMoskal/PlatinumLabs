@@ -141,7 +141,7 @@ export default function HomePage() {
               <span className="text-white">Smarter</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Professional crypto trading tools, AI-powered bots, and advanced analytics for the modern DeFi trader.
+              Professional crypto trading tools, AI-powered bots, and future advanced analytics for the modern DeFi trader.
               Discover institutional-grade solutions for optimal trading performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
