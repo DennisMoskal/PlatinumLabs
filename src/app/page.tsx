@@ -19,15 +19,15 @@ import {
   Sparkles,
 } from "lucide-react"
 
-// Fixed button styles - removed conflicts and improved functionality
+// Schlankere Button-Styles (angepasste Polsterung & Typografie, kollisionsfrei)
 const btnPrimary =
-  "inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white " +
-  "rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-in-out " +
+  "inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white " +
+  "rounded-lg px-3.5 py-2 text-[13px] md:text-sm font-medium leading-none transition-all duration-200 ease-in-out " +
   "hover:from-purple-500 hover:to-blue-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 " +
   "active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent " +
-  "relative z-20 cursor-pointer no-underline"
+  "relative z-20 cursor-pointer no-underline select-none"
 
-// Container for centered CTAs at bottom of cards
+// Einheitlicher CTA-Container am Kartenende
 const cardCtaWrap = "mt-auto pt-4 flex justify-center"
 
 // 7 wichtigste Chains inkl. TON
@@ -136,7 +136,7 @@ const tradingBots = [
   },
 ]
 
-// Bridging Bots - matching the main bot card layout
+// Bridging Bots – exakt gleiche Karten- und Grid-Logik wie oben
 const bridgingBots = [
   {
     id: "maestro-bridge",
@@ -264,64 +264,64 @@ export default function HomePage() {
             </p>
           </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="maestro-card rounded-2xl p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
-            <div className="space-y-4 text-gray-300">
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="maestro-card rounded-2xl p-8 flex flex-col">
+              <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
+              <div className="space-y-4 text-gray-300">
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Custom thresholds: 0.1% to 10% price moves</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Multi-asset: BTC, ETH, SOL, XRP (easy expansion)</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Live Binance API integration</div>
+                <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
+              </div>
+              <div className={cardCtaWrap}>
+                <Link
+                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={btnPrimary}
+                  aria-label="Get CryptoPulse Pro"
+                >
+                  Get CryptoPulse Pro – $197
+                </Link>
+              </div>
             </div>
-            <div className={cardCtaWrap}>
-              <Link
-                href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={btnPrimary}
-                aria-label="Get CryptoPulse Pro"
-              >
-                Get CryptoPulse Pro – $197
-              </Link>
-            </div>
-          </div>
 
-          <div className="space-y-6">
-            {[
-              {
-                title: "Statistical Analysis",
-                icon: BarChart3,
-                text:
-                  "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
-              },
-              {
-                title: "Customizable Parameters",
-                icon: Brain,
-                text:
-                  "Tune thresholds and probability filters to match your strategy for optimal results.",
-              },
-              {
-                title: "Professional Reports",
-                icon: Target,
-                text:
-                  "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
-              },
-            ].map((b) => (
-              <Card key={b.title} className="maestro-card">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <b.icon className="mr-2 h-5 w-5 text-purple-400" />
-                    {b.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{b.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="space-y-6">
+              {[
+                {
+                  title: "Statistical Analysis",
+                  icon: BarChart3,
+                  text:
+                    "Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.",
+                },
+                {
+                  title: "Customizable Parameters",
+                  icon: Brain,
+                  text:
+                    "Tune thresholds and probability filters to match your strategy for optimal results.",
+                },
+                {
+                  title: "Professional Reports",
+                  icon: Target,
+                  text:
+                    "Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.",
+                },
+              ].map((b) => (
+                <Card key={b.title} className="maestro-card">
+                  <CardHeader>
+                    <CardTitle className="text-white flex items-center">
+                      <b.icon className="mr-2 h-5 w-5 text-purple-400" />
+                      {b.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-300">{b.text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -410,7 +410,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bridging - Updated to match bot card layout */}
+      {/* Bridging – identisches Grid & Kartengerüst wie bei Bots */}
       <section className="py-20">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -420,7 +420,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-2xl mx-auto">
+          {/* Gleiches Layout wie bei den Premium Trading Bots */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {bridgingBots.map((bot) => (
               <Card
                 key={bot.id}
@@ -448,6 +449,7 @@ export default function HomePage() {
                     ))}
                   </div>
 
+                  {/* CTA unten mittig */}
                   <div className={cardCtaWrap}>
                     <Link 
                       href={bot.link} 
