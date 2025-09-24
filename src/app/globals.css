@@ -257,8 +257,8 @@
 .maestro-btn {
   inline-size: fit-content; /* Kürzer */
   block-size: 2.5rem; /* Dünner */
-  padding-inline: 1rem; /* Anpassung für kürzer */
-  padding-block: 0.25rem; /* Noch dünner für bessere Kontrolle */
+  padding-inline: 0.75rem; /* Anpassung an Tailwind px-3 */
+  padding-block: 0.25rem; /* Anpassung an Tailwind py-1 */
   background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
   border: 1px solid rgba(147, 51, 234, 0.3);
   border-radius: 8px;
@@ -267,12 +267,13 @@
   transition: all 0.3s ease;
   cursor: pointer; /* Sichtbare Klickbarkeit */
   text-align: center; /* Zentrierung des Textes */
+  pointer-events: auto; /* Sicherstellen der Klickbarkeit */
 }
 
 .maestro-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
-  filter: brightness(1.25) !important; /* Stärkerer Hover-Effekt mit !important */
+  filter: brightness(1.25); /* !important entfernt, Tailwind-Priorität */
 }
 
 .maestro-btn:active {
