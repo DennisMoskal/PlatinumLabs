@@ -12,11 +12,11 @@
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
+    --accent: 210 40% 96%;
     --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -137,7 +137,7 @@
   height: 3px;
   background: linear-gradient(45deg, #9333ea, #3b82f6);
   border-radius: 50%;
-  box-shadow:
+  box-shadow: 
     0 0 15px rgba(147, 51, 234, 0.8),
     0 0 30px rgba(147, 51, 234, 0.4);
 }
@@ -212,9 +212,9 @@
 
 /* Enhanced card effects */
 .maestro-card {
-  background: linear-gradient(145deg,
-    rgba(26, 27, 35, 0.8) 0%,
-    rgba(45, 27, 61, 0.6) 50%,
+  background: linear-gradient(145deg, 
+    rgba(26, 27, 35, 0.8) 0%, 
+    rgba(45, 27, 61, 0.6) 50%, 
     rgba(26, 27, 35, 0.8) 100%
   );
   border: 1px solid rgba(147, 51, 234, 0.2);
@@ -231,14 +231,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(147, 51, 234, 0.1),
-    rgba(59, 130, 246, 0.08),
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(147, 51, 234, 0.1), 
+    rgba(59, 130, 246, 0.08), 
     transparent
   );
   transition: left 0.6s ease-in-out;
   z-index: 1;
+  pointer-events: none; /* FIX: overlay must not block clicks */
 }
 
 .maestro-card:hover::before {
@@ -248,42 +249,74 @@
 .maestro-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(147, 51, 234, 0.4);
-  box-shadow:
+  box-shadow: 
     0 25px 50px rgba(147, 51, 234, 0.15),
     0 0 0 1px rgba(147, 51, 234, 0.2);
 }
 
-/* Maestro-style buttons */
+/* Maestro-style buttons (shared look) */
 .maestro-btn {
-  inline-size: fit-content; /* Kürzer */
-  block-size: 2.5rem; /* Dünner */
-  padding-inline: 0.75rem; /* Anpassung an Tailwind px-3 */
-  padding-block: 0.25rem; /* Anpassung an Tailwind py-1 */
   background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
   border: 1px solid rgba(147, 51, 234, 0.3);
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer; /* Sichtbare Klickbarkeit */
-  text-align: center; /* Zentrierung des Textes */
-  pointer-events: auto; /* Sicherstellen der Klickbarkeit */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0.75rem; /* like rounded-xl */
+}
+
+.maestro-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.maestro-btn:hover::before {
+  left: 100%;
 }
 
 .maestro-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
-  filter: brightness(1.25); /* !important entfernt, Tailwind-Priorität */
+  filter: brightness(1.05);
+  box-shadow: 
+    0 15px 30px rgba(147, 51, 234, 0.3),
+    0 0 0 1px rgba(147, 51, 234, 0.4);
 }
 
 .maestro-btn:active {
-  transform: scale(0.98);
+  transform: translateY(0) scale(0.98);
+  filter: brightness(1.03);
+}
+
+.maestro-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(147, 51, 234, 0.35),
+    0 12px 24px rgba(147, 51, 234, 0.25);
+}
+
+.maestro-btn[disabled],
+.maestro-btn[aria-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* Navigation with Maestro styling */
 .maestro-nav {
-  background: linear-gradient(135deg,
-    rgba(10, 11, 13, 0.95) 0%,
+  background: linear-gradient(135deg, 
+    rgba(10, 11, 13, 0.95) 0%, 
     rgba(26, 27, 35, 0.9) 100%
   );
   backdrop-filter: blur(25px);
@@ -311,12 +344,13 @@
     radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 30% 70%, rgba(147, 51, 234, 0.08) 0%, transparent 50%);
   z-index: 1;
+  pointer-events: none; /* FIX: do not block clicks in section */
 }
 
 /* Footer styling */
 .maestro-footer {
-  background: linear-gradient(135deg,
-    rgba(10, 11, 13, 0.98) 0%,
+  background: linear-gradient(135deg, 
+    rgba(10, 11, 13, 0.98) 0%, 
     rgba(26, 27, 35, 0.95) 100%
   );
   border-top: 1px solid rgba(147, 51, 234, 0.2);
@@ -324,16 +358,16 @@
 
 /* Animations */
 @keyframes maestro-pulse {
-  0% {
-    opacity: 0.3;
+  0% { 
+    opacity: 0.3; 
     transform: scale(1);
   }
-  50% {
-    opacity: 0.7;
+  50% { 
+    opacity: 0.7; 
     transform: scale(1.05);
   }
-  100% {
-    opacity: 0.5;
+  100% { 
+    opacity: 0.5; 
     transform: scale(1.02);
   }
 }
@@ -344,35 +378,35 @@
 }
 
 @keyframes maestro-float-1 {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
     opacity: 0.6;
   }
-  25% {
-    transform: translateY(-15px) translateX(8px) scale(1.2);
+  25% { 
+    transform: translateY(-15px) translateX(8px) scale(1.2); 
     opacity: 1;
   }
-  50% {
-    transform: translateY(-5px) translateX(15px) scale(0.8);
+  50% { 
+    transform: translateY(-5px) translateX(15px) scale(0.8); 
     opacity: 0.8;
   }
-  75% {
-    transform: translateY(10px) translateX(8px) scale(1.1);
+  75% { 
+    transform: translateY(10px) translateX(8px) scale(1.1); 
     opacity: 0.9;
   }
 }
 
 @keyframes maestro-float-2 {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
     opacity: 0.5;
   }
-  33% {
-    transform: translateY(-20px) translateX(-10px) scale(1.3);
+  33% { 
+    transform: translateY(-20px) translateX(-10px) scale(1.3); 
     opacity: 0.9;
   }
-  66% {
-    transform: translateY(8px) translateX(-20px) scale(0.9);
+  66% { 
+    transform: translateY(8px) translateX(-20px) scale(0.9); 
     opacity: 0.7;
   }
 }
@@ -401,15 +435,15 @@
 }
 
 @keyframes maestro-circuit-flow {
-  0% {
-    transform: translateX(0) translateY(0);
+  0% { 
+    transform: translateX(0) translateY(0); 
     opacity: 0.6;
   }
-  50% {
+  50% { 
     opacity: 1;
   }
-  100% {
-    transform: translateX(-120px) translateY(-120px);
+  100% { 
+    transform: translateX(-120px) translateY(-120px); 
     opacity: 0.6;
   }
 }
@@ -441,4 +475,13 @@
 @keyframes maestro-text-shine {
   0%, 100% { background-position: 200% center; }
   50% { background-position: -200% center; }
+}
+
+/* --- CRITICAL: make all decorative layers non-interactive so links/buttons are clickable --- */
+.maestro-hero-bg,
+.maestro-tech-grid,
+.maestro-floating-particles,
+.maestro-circuit-overlay,
+.maestro-glow-orb {
+  pointer-events: none;
 }
