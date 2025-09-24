@@ -4,9 +4,6 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-/**
- * Button-Styles. "brand" lässt dir die volle Kontrolle via zusätzlicher Klassen (z. B. Gradient ".maestro-btn").
- */
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors " +
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
@@ -20,7 +17,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        brand: "", // nutzt externen Gradient/Glanz via className (z. B. ".maestro-btn")
+        brand: "", // wir stylen primär über .maestro-btn in global.css
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -29,20 +26,13 @@ const buttonVariants = cva(
         icon: "h-10 w-10",
       },
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
+    defaultVariants: { variant: "default", size: "default" },
   }
 )
 
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
     VariantProps<typeof buttonVariants> {
-  /**
-   * Rendert das Kind (z. B. <Link/>) als Root-Element.
-   * Es wird NUR die className gemerged, damit keine fremden Props (z. B. type) Next/Link stören.
-   */
   asChild?: boolean
   children?: React.ReactNode
 }
@@ -58,7 +48,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className: cn(onlyChild.props.className, classes),
         })
       }
-      // Fallback: falls kein valides Element übergeben wurde
       return (
         <button ref={ref} className={classes} type={type ?? "button"} {...props}>
           {children}
