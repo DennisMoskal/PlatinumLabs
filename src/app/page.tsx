@@ -1,112 +1,89 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity, BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock } from "lucide-react"
+import {
+  Bot, TrendingUp, Target, Zap, Copy, Brain, Shield, Activity,
+  BarChart3, FlaskConical, CircuitBoard, Sparkles, Lock
+} from "lucide-react"
 import Link from "next/link"
 
-// Type für tradingTools (sichere Icon-Rendering)
-type LucideIcon = React.ComponentType<{ className?: string; size?: number | string }>;
+// Typ für sichere Icon-Komponenten
+type LucideIcon = React.ComponentType<{ className?: string; size?: number | string }>
 
 interface TradingTool {
-  title: string;
-  description: string;
-  icon: LucideIcon; // Expliziter Typ für Icon
+  title: string
+  description: string
+  icon: LucideIcon
 }
 
 export default function HomePage() {
-  // Einheitlicher Button-Basisklassen (enger, dünner, Hover+Active)
+  // Einheitlicher Button (schmal, fokussierbar, Hover/Active)
   const btnBase =
     "maestro-btn inline-flex items-center justify-center text-base md:text-lg font-semibold " +
+    "cursor-pointer pointer-events-auto " + // <- erzwingt Klickbarkeit
     "focus:outline-none focus:ring-2 focus:ring-purple-500/40 hover:brightness-125 active:scale-[0.98] transition-all " +
-    "px-3 py-1" // Reduzierte Padding-Werte für schmalere Buttons
+    "px-3 py-1"
 
-  // Bot-Daten mit Affiliate-Weiterleitungen
+  // Bot-Daten (externe Weiterleitungen → <a>)
   const tradingBots = [
-    {
-      id: "maestro",
-      name: "Maestro Bot",
+    { id: "maestro", name: "Maestro Bot",
       description:
         "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Protection, Call-Channel-Sniping, Wallet-Tools.",
       recommendation: "Great for Cross-Chain Bridging",
       tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
       icon: Bot,
       featured: true,
-      link: "https://t.me/maestro?start=r-schmied0815",
-    },
-    {
-      id: "bullx",
-      name: "BullX",
+      link: "https://t.me/maestro?start=r-schmied0815" },
+    { id: "bullx", name: "BullX",
       description:
         "Multi-Chain trading via Telegram & Web. Fast execution, Limit Orders, Pump-Vision, Multi-Wallet, Live-Charts — ideal for active trading.",
       recommendation: "Best for Limit Orders & Charts",
       tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
       icon: TrendingUp,
-      link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia",
-    },
-    {
-      id: "solsniperx",
-      name: "SolSniper X",
+      link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia" },
+    { id: "solsniperx", name: "SolSniper X",
       description:
         "High-speed sniping on Solana. Auto-buy new tokens, Rug filter, LP burn checks, real-time logs — built for early entries.",
       recommendation: "Early SOL Snipes",
       tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
       icon: Target,
-      link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk",
-    },
-    {
-      id: "bonkbot",
-      name: "BONKbot",
+      link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk" },
+    { id: "bonkbot", name: "BONKbot",
       description:
         "Lightning-fast Solana trading with Jupiter routing, MEV protection, limit orders, auto-buys & portfolio tracking. Huge community, high volume.",
       recommendation: "Top Pick on Solana",
       tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
       icon: Zap,
-      link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre",
-    },
-    {
-      id: "blum",
-      name: "Blum",
+      link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre" },
+    { id: "blum", name: "Blum",
       description:
         "Multichain bot (TON, Solana, BNB). On-chain sniping, Terminal UI, limit orders, bridge, wallet management, P&L reports.",
       recommendation: "TON-First Multichain Terminal",
       tags: ["TON", "Solana", "BNB", "Terminal-UI"],
       icon: Bot,
-      link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi",
-    },
-    {
-      id: "soltradingbot",
-      name: "SolTradingBot",
+      link: "https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" },
+    { id: "soltradingbot", name: "SolTradingBot",
       description:
         "Solana-focused with Jupiter/Orca/Raydium integration, copy trading, limit/DCA orders, and backup bots under heavy network load.",
       recommendation: "Robust Jupiter/Orca Routing",
       tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
       icon: Copy,
-      link: "https://t.me/SolTradingBot?start=jOXoZ6gZY",
-    },
-    {
-      id: "hector",
-      name: "Hector Trojan Bot",
+      link: "https://t.me/SolTradingBot?start=jOXoZ6gZY" },
+    { id: "hector", name: "Hector Trojan Bot",
       description:
         "AI-powered strategies, hidden-gem scanning, and fast execution directly in a Telegram bot. Non-custodial and Solana-focused.",
       recommendation: "AI-Driven Gem Scanning",
       tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
       icon: Brain,
-      link: "https://t.me/hector_trojanbot?start=r-schmied0815",
-    },
-    {
-      id: "tradewiz",
-      name: "TradeWiz",
+      link: "https://t.me/hector_trojanbot?start=r-schmied0815" },
+    { id: "tradewiz", name: "TradeWiz",
       description:
         "Ultra-fast copy trading (<2s), smart-wallet recognition, rule-based automation, DCA/limit support.",
       recommendation: "Ultra-Fast Copy Trading",
       tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
       icon: Shield,
-      link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L",
-    },
+      link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L" },
   ]
 
-  // Trading Tools
   const tradingTools: TradingTool[] = [
     { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
     { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated trading strategies.", icon: Brain },
@@ -136,14 +113,36 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="maestro-main-bg">
+    <div className="maestro-main-bg relative isolate"> {/* isolate = eigener Stacking-Context */}
+      {/* **HARTE** Schutz-Overrides gegen globale Konflikte */}
+      <style jsx global>{`
+        /* Alle dekorativen Layer dürfen NIE Klicks blockieren */
+        .maestro-tech-grid,
+        .maestro-floating-particles,
+        .maestro-circuit-overlay,
+        .maestro-glow-orb,
+        .maestro-hero-bg {
+          pointer-events: none !important;
+          z-index: -1 !important;
+          position: absolute; /* falls anders gesetzt */
+          inset: 0 auto auto 0; /* defensiv */
+        }
+        /* Buttons/Links müssen immer klickbar sein */
+        .maestro-btn,
+        a.maestro-btn,
+        a[href],
+        button {
+          pointer-events: auto !important;
+        }
+      `}</style>
+
       {/* Background Effects */}
-      <div className="maestro-tech-grid pointer-events-none" />
-      <div className="maestro-floating-particles pointer-events-none" />
-      <div className="maestro-circuit-overlay pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
-      <div className="maestro-glow-orb pointer-events-none" />
+      <div className="maestro-tech-grid" />
+      <div className="maestro-floating-particles" />
+      <div className="maestro-circuit-overlay" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
+      <div className="maestro-glow-orb" />
 
       {/* Navigation */}
       <nav className="maestro-nav border-b border-purple-500/20 backdrop-blur-sm sticky top-0 z-50">
@@ -157,9 +156,11 @@ export default function HomePage() {
               <span className="text-2xl font-bold text-white maestro-text-glow">PlatinumLabs</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</Link>
-              <Link href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</Link>
-              <Link href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</Link>
+              {/* Hash-Links als <a> */}
+              <a href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</a>
+              <a href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</a>
+              <a href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</a>
+              {/* interne Routen dürfen Link bleiben */}
               <Link href="/legal/impressum" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Legal</Link>
             </div>
           </div>
@@ -168,14 +169,14 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="maestro-hero-bg absolute inset-0" />
+        <div className="maestro-hero-bg" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border border-purple-500/30 text-sm px-4 py-2">
+              <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border border-purple-500/30 text-sm px-4 py-2 inline-flex items-center">
                 <Sparkles className="mr-2 h-4 w-4" />
-                The Leading Trading Platform
-              </Badge>
+                <span>The Leading Trading Platform</span>
+              </div>
             </div>
 
             <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
@@ -228,7 +229,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="maestro-card rounded-2xl p-8">
+            <div className="maestro-card rounded-2xl p-8 h-full flex flex-col">
               <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
               <div className="space-y-4 text-gray-300">
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Adjustable timeframes: 1–12 months historical data</div>
@@ -238,54 +239,48 @@ export default function HomePage() {
                 <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Export to HTML & CSV</div>
               </div>
               <div className="mt-8 flex justify-center">
-                <Link href="https://moskaldennis.gumroad.com/l/CryptoPulsePro" target="_blank" rel="noreferrer" className={btnBase}>
+                <a
+                  href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={btnBase}
+                  aria-label="Get CryptoPulse Pro – $197"
+                >
                   Get CryptoPulse Pro – $197
-                </Link>
+                </a>
               </div>
             </div>
 
             <div className="space-y-6">
-              <Card className="maestro-card">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <BarChart3 className="mr-2 h-5 w-5 text-purple-400" />
-                    Statistical Analysis
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">
-                    Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="maestro-card p-6 h-full">
+                <h3 className="text-white flex items-center">
+                  <BarChart3 className="mr-2 h-5 w-5 text-purple-400" />
+                  Statistical Analysis
+                </h3>
+                <p className="text-gray-300 mt-2">
+                  Identify high-probability trading windows with precise statistics. Detailed probability tables by weekday and hour.
+                </p>
+              </div>
 
-              <Card className="maestro-card">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <Brain className="mr-2 h-5 w-5 text-blue-400" />
-                    Customizable Parameters
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">
-                    Tune thresholds and probability filters to match your strategy for optimal results.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="maestro-card p-6 h-full">
+                <h3 className="text-white flex items-center">
+                  <Brain className="mr-2 h-5 w-5 text-blue-400" />
+                  Customizable Parameters
+                </h3>
+                <p className="text-gray-300 mt-2">
+                  Tune thresholds and probability filters to match your strategy for optimal results.
+                </p>
+              </div>
 
-              <Card className="maestro-card">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
-                    <Target className="mr-2 h-5 w-5 text-purple-400" />
-                    Professional Reports
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">
-                    Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="maestro-card p-6 h-full">
+                <h3 className="text-white flex items-center">
+                  <Target className="mr-2 h-5 w-5 text-purple-400" />
+                  Professional Reports
+                </h3>
+                <p className="text-gray-300 mt-2">
+                  Generate professional HTML reports and CSV exports — perfect for algo developers and active traders.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -296,24 +291,20 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Professional Trading Tools</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A comprehensive suite for strategic crypto, DeFi, and multi-asset investing.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {tradingTools.map((tool, index) => (
-              <Card key={index} className="maestro-card transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center">
+              <div key={index} className="maestro-card transition-colors h-full flex flex-col">
+                <div className="p-6 flex flex-col grow">
+                  <h3 className="text-white flex items-center">
                     <tool.icon className="mr-3 h-6 w-6 text-purple-400" />
                     {tool.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{tool.description}</p>
-                </CardContent>
-              </Card>
+                  </h3>
+                  <p className="text-gray-300 mt-2">{tool.description}</p>
+                  <div className="mt-auto" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -329,34 +320,47 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
             {tradingBots.map((bot) => (
-              <Card key={bot.id} className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}>
-                <CardHeader>
+              <div
+                key={bot.id}
+                className={`maestro-card h-full flex flex-col transition-all duration-300 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
+              >
+                <div className="p-6">
                   <div className="flex items-center justify-between">
                     <bot.icon className="h-8 w-8 text-purple-400" />
-                    <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-2 py-1 rounded text-sm">
                       {bot.recommendation}
-                    </Badge>
+                    </div>
                   </div>
-                  <CardTitle className="text-white">{bot.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col grow space-y-4 h-full">
-                  <CardDescription className="text-gray-300">{bot.description}</CardDescription>
+                  <h3 className="text-white mt-2">{bot.name}</h3>
+                </div>
+
+                <div className="p-6 flex flex-col grow space-y-4">
+                  <p className="text-gray-300">{bot.description}</p>
+
                   <div className="flex flex-wrap gap-1">
                     {bot.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-white/10 text-gray-200 text-xs border-white/10">
+                      <div key={tag} className="bg-white/10 text-gray-200 text-xs border-white/10 px-2 py-1 rounded">
                         {tag}
-                      </Badge>
+                      </div>
                     ))}
                   </div>
+
+                  {/* Button fix unten */}
                   <div className="mt-auto flex justify-center">
-                    <Link href={bot.link} target="_blank" rel="noreferrer" className={btnBase}>
+                    <a
+                      href={bot.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={btnBase}
+                      aria-label={`Launch ${bot.name} on Telegram`}
+                    >
                       Launch on Telegram
-                    </Link>
+                    </a>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -372,56 +376,56 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="maestro-card h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-white">Maestro Bot</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4 h-full">
+          <div className="grid md:grid-cols-2 gap-8 mb-12 items-stretch">
+            <div className="maestro-card h-full flex flex-col">
+              <div className="p-6">
+                <h3 className="text-white">Maestro Bot</h3>
+              </div>
+              <div className="p-6 flex flex-col grow space-y-4">
                 <p className="text-gray-300">
                   Multichain bridging with Houdini integration for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Multichain</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Houdini</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Non-Custodial</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Low Fees</Badge>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Multichain</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Houdini</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Non-Custodial</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Low Fees</div>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
+                  <a href="https://t.me/maestro?start=r-schmied0815" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Maestro
-                  </Link>
+                  </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="maestro-card h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-white">Blum Bot</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col grow space-y-4 h-full">
+            <div className="maestro-card h-full flex flex-col">
+              <div className="p-6">
+                <h3 className="text-white">Blum Bot</h3>
+              </div>
+              <div className="p-6 flex flex-col grow space-y-4">
                 <p className="text-gray-300">
                   Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">TON</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Solana</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">BNB</Badge>
-                  <Badge variant="secondary" className="bg-white/10 text-gray-200 border-white/10">Terminal-UI</Badge>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">TON</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Solana</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">BNB</div>
+                  <div className="bg-white/10 text-gray-200 border-white/10 px-2 py-1 rounded">Terminal-UI</div>
                 </div>
                 <div className="mt-auto flex justify-center">
-                  <Link href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
+                  <a href="https://t.me/BlumCryptoTradingBot?start=fUWB8pIqKi" target="_blank" rel="noreferrer" className={btnBase}>
                     Start Bridging via Blum
-                  </Link>
+                  </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           <div className="text-center">
-            <Link href="#bots" className={btnBase}>
+            <a href="#bots" className={btnBase}>
               Discover All Trading Bots
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -446,9 +450,9 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Products</h4>
               <ul className="space-y-2">
-                <li><Link href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</Link></li>
-                <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</Link></li>
-                <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</Link></li>
+                <li><a href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</a></li>
+                <li><a href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</a></li>
+                <li><a href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</a></li>
               </ul>
             </div>
 
@@ -478,5 +482,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
