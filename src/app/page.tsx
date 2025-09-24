@@ -281,7 +281,8 @@ export default function HomePage() {
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Professional Export Functions for strategy development and backtesting</div>
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Instant Deployment with plug-and-play setup for immediate results</div>
                 </div>
-                <div className={cardCtaWrap}>
+                {/* CTA – jetzt mit mt-8 für harmonischen Abstand */}
+                <div className={`${cardCtaWrap} mt-8`}>
                   <Link
                     href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
                     target="_blank"
@@ -507,9 +508,7 @@ export default function HomePage() {
               {tradingBots.map((bot) => (
                 <Card
                   key={bot.id}
-                  className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
-                    bot.featured ? "ring-2 ring-purple-500/40" : ""
-                  }`}
+                  className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
                 >
                   <CardHeader className="relative z-20">
                     <div className="flex items-center justify-between">
@@ -556,7 +555,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h3 className="text-3xl font-bold text-white mb-4 maestro-text-glow">Our Bridging Bots</h3>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Seamlessly bridge assets across multiple blockchains with specialized, non-custodial flows.
               </p>
             </div>
@@ -565,9 +564,7 @@ export default function HomePage() {
               {bridgingBots.map((bot) => (
                 <Card
                   key={bot.id}
-                  className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${
-                    bot.featured ? "ring-2 ring-purple-500/40" : ""
-                  }`}
+                  className={`maestro-card h-full flex flex-col transition-all duration-300 relative z-10 ${bot.featured ? "ring-2 ring-purple-500/40" : ""}`}
                 >
                   <CardHeader className="relative z-20">
                     <div className="flex items-center justify-between">
