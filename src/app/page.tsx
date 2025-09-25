@@ -278,7 +278,7 @@ export default function HomePage() {
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Precision Timing Analytics for optimal entry/exit point identification</div>
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Configurable Risk Parameters from conservative to aggressive trading styles</div>
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Cross-Asset Volatility Mapping across major cryptocurrency pairs</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Professional Export Functions for strategy development and backtesting</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Calculates the probability of price changes to the hour, for example for crypto trading or betting</div>
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Instant Deployment with plug-and-play setup for immediate results</div>
                 </div>
                 {/* CTA – jetzt mit mt-8 für harmonischen Abstand */}
@@ -300,7 +300,7 @@ export default function HomePage() {
                   {
                     title: "Core Data Processing",
                     icon: Database,
-                    text: "Loads 1-minute candle data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis.",
+                    text: "Loads data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis.",
                   },
                   {
                     title: "Hourly Volatility Analysis",
