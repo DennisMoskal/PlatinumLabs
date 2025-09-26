@@ -15,11 +15,8 @@ export const metadata: Metadata = {
   publisher: "PlatinumLabs",
   applicationName: "PlatinumLabs",
   metadataBase: new URL("https://platinumlabs.vercel.app"),
-  alternates: {
-    canonical: "https://platinumlabs.vercel.app/",
-  },
+  alternates: { canonical: "https://platinumlabs.vercel.app/" },
 
-  // ✅ Social Preview: nutzt deine Bilder aus /public/images
   openGraph: {
     title: "PlatinumLabs - Trade Smarter",
     description:
@@ -27,18 +24,8 @@ export const metadata: Metadata = {
     url: "https://platinumlabs.vercel.app",
     siteName: "PlatinumLabs",
     images: [
-      {
-        url: "/images/cover-1200x630.jpg",
-        width: 1200,
-        height: 630,
-        alt: "PlatinumLabs - Professional Crypto Trading Tools",
-      },
-      {
-        url: "/images/cover-1200x1200.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)",
-      },
+      { url: "/images/cover-1200x630.jpg", width: 1200, height: 630, alt: "PlatinumLabs - Professional Crypto Trading Tools" },
+      { url: "/images/cover-1200x1200.jpg", width: 1200, height: 1200, alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)" }
     ],
     locale: "en_US",
     type: "website",
@@ -46,8 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PlatinumLabs - Trade Smarter",
-    description:
-      "Professional crypto trading tools, AI-powered bots, and advanced analytics for DeFi traders.",
+    description: "Professional crypto trading tools, AI-powered bots, and advanced analytics for DeFi traders.",
     images: ["/images/cover-1200x630.jpg"],
   },
 
@@ -62,11 +48,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI",
-  },
+  verification: { google: "gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI" },
 
-  // ✅ Favicons aus /public/images
+  // Favicons via Metadata
   icons: {
     icon: [
       { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -77,19 +61,23 @@ export const metadata: Metadata = {
     apple: "/images/apple-touch-icon.png",
   },
 
-  // ✅ PWA/Browser-UI
   manifest: "/site.webmanifest",
   themeColor: "#0b0b10",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+  viewport: { width: "device-width", initialScale: 1 },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* ✅ Zusätzliche explizite Favicon-Links (Fallbacks für Google & ältere Browser) */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png" />
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
         {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
@@ -98,8 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "PlatinumLabs",
-              description:
-                "Professional crypto trading tools and AI-powered solutions for the modern DeFi trader",
+              description: "Professional crypto trading tools and AI-powered solutions for the modern DeFi trader",
               url: "https://platinumlabs.vercel.app",
               logo: "https://platinumlabs.vercel.app/logo.png",
               contactPoint: {
