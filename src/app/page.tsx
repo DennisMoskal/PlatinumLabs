@@ -290,7 +290,7 @@ export default function HomePage() {
                     className={btnPrimary}
                     aria-label="Get CryptoPulse Pro"
                   >
-                    Get CryptoPulse Pro
+                    Get CryptoPulse Pro - Cryptocurrency Volatility Analysis 
                   </Link>
                 </div>
               </div>
