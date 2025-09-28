@@ -284,7 +284,7 @@ export default function HomePage() {
                 {/* CTA – jetzt mit mt-8 für harmonischen Abstand */}
                 <div className={`${cardCtaWrap} mt-8`}>
                   <Link
-                    href="https://moskaldennis.gumroad.com/l/CryptoPulsePro"
+                    href="https://platinumlabs.gumroad.com/l/CryptoPulsePro"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={btnPrimary}
