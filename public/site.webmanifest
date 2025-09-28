@@ -1,12 +1,29 @@
 {
-  "name": "PlatinumLabs",
+  "name": "PlatinumLabs - Trade Smarter",
   "short_name": "PlatinumLabs",
+  "description": "Professional crypto trading tools and AI-powered solutions",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0b10",
   "theme_color": "#0b0b10",
+  "orientation": "portrait-primary",
   "icons": [
-    { "src": "/images/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/images/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ]
 }
