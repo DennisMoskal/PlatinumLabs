@@ -50,15 +50,17 @@ export const metadata: Metadata = {
   },
   verification: { google: "gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI" },
 
-  // Favicons via Metadata
+  // Korrigierte Favicon-Konfiguration
   icons: {
     icon: [
-      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/images/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
-    apple: "/images/apple-touch-icon.png",
+    apple: [
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+    ],
   },
 
   manifest: "/site.webmanifest",
@@ -70,14 +72,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* ✅ Zusätzliche explizite Favicon-Links (Fallbacks für Google & ältere Browser) */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        {/* Explizite Favicon-Links für bessere Kompatibilität */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        
         {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
