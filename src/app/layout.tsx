@@ -57,6 +57,8 @@ export const metadata: Metadata = {
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/images/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
@@ -72,10 +74,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Explizite Favicon-Links für bessere Kompatibilität */}
+        {/* Explizite Favicon-Links für maximale Kompatibilität */}
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         
         {/* Organization JSON-LD */}
