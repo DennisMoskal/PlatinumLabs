@@ -282,15 +282,24 @@ export default function HomePage() {
                   <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Instant Deployment with plug-and-play setup for immediate results</div>
                 </div>
                 {/* CTA – jetzt mit mt-8 für harmonischen Abstand */}
-                <div className={`${cardCtaWrap} mt-8`}>
+                <div className={`${cardCtaWrap} mt-8 flex flex-col space-y-4`}>
                   <Link
                     href="https://platinumlabs.gumroad.com/l/CryptoPulsePro"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={btnPrimary}
+                    className={`${btnPrimary} w-full`}
                     aria-label="Get CryptoPulse Pro"
                   >
                     Get CryptoPulse Pro - Cryptocurrency Volatility Analysis 
+                  </Link>
+                  <Link
+                    href="https://platinumlabs.gumroad.com/l/CryptoPulseProdeutsch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${btnPrimary} w-full`}
+                    aria-label="Hol dir CryptoPulse Pro auf Deutsch"
+                  >
+                    Hol dir CryptoPulse Pro auf Deutsch
                   </Link>
                 </div>
               </div>
