@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   applicationName: "PlatinumLabs",
   metadataBase: new URL("https://platinumlabs.vercel.app"),
   alternates: { canonical: "https://platinumlabs.vercel.app/" },
-
   openGraph: {
     title: "PlatinumLabs - Trade Smarter",
     description:
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "PlatinumLabs",
     images: [
       { url: "/images/cover-1200x630.jpg", width: 1200, height: 630, alt: "PlatinumLabs - Professional Crypto Trading Tools" },
-      { url: "/images/cover-1200x1200.jpg", width: 1200, height: 1200, alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)" }
+      { url: "/images/cover-1200x1200.jpg", width: 1200, height: 1200, alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)" },
     ],
     locale: "en_US",
     type: "website",
@@ -36,7 +35,6 @@ export const metadata: Metadata = {
     description: "Professional crypto trading tools, AI-powered bots, and advanced analytics for DeFi traders.",
     images: ["/images/cover-1200x630.jpg"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -49,11 +47,9 @@ export const metadata: Metadata = {
     },
   },
   verification: { google: "gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI" },
-
-  // Korrigierte Favicon-Konfiguration
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon.ico", type: "image/x-icon" }, // Standard-Favicon ohne sizes
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-48x48.png", sizes: "48x48", type: "image/png" },
@@ -61,10 +57,9 @@ export const metadata: Metadata = {
       { url: "/images/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-
   manifest: "/site.webmanifest",
   themeColor: "#0b0b10",
   viewport: { width: "device-width", initialScale: 1 },
@@ -74,14 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Explizite Favicon-Links für maximale Kompatibilität */}
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-        
-        {/* Organization JSON-LD */}
+        {/* Entferne redundante <link>-Tags, da metadata.icons ausreichend ist */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
