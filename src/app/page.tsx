@@ -312,52 +312,36 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Video Section - Neu eingefügt */}
-              <div className="flex flex-col gap-6">
-                <div className="maestro-card rounded-2xl overflow-hidden">
-                  <video 
-                    controls 
-                    poster="/images/thumbnail.jpg"
-                    className="w-full h-auto max-h-[600px] object-cover"
-                    preload="metadata"
-                    aria-label="CryptoPulse Pro Demo Video"
-                  >
-                    <source src="/video/Crypto Clip.mp4" type="video/mp4" />
-                    Ihr Browser unterstützt das Video-Tag nicht.
-                  </video>
-                </div>
-                
-                <div className="space-y-6">
-                  {[
-                    {
-                      title: "Core Data Processing",
-                      icon: Database,
-                      text: "Loads data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis.",
-                    },
-                    {
-                      title: "Hourly Volatility Analysis",
-                      icon: Clock,
-                      text: "Calculates percentage price changes per hour and identifies movements above configurable thresholds (default 0.1%). Categorizes movements as 'Upward' or 'Downward' grouped by weekday and hour.",
-                    },
-                    {
-                      title: "Statistical Probability Engine",
-                      icon: BarChart3,
-                      text: "Determines statistical probability for price movements based on historical data (1-12 months). Creates detailed probability profiles for each weekday-hour combination with precise accuracy.",
-                    },
-                  ].map((b) => (
-                    <Card key={b.title} className="maestro-card h-full flex flex-col">
-                      <CardHeader>
-                        <CardTitle className="text-white flex items-center">
-                          <b.icon className="mr-2 h-5 w-5 text-purple-400" />
-                          {b.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-gray-300">
-                        <p>{b.text}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Core Data Processing",
+                    icon: Database,
+                    text: "Loads data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis.",
+                  },
+                  {
+                    title: "Hourly Volatility Analysis",
+                    icon: Clock,
+                    text: "Calculates percentage price changes per hour and identifies movements above configurable thresholds (default 0.1%). Categorizes movements as 'Upward' or 'Downward' grouped by weekday and hour.",
+                  },
+                  {
+                    title: "Statistical Probability Engine",
+                    icon: BarChart3,
+                    text: "Determines statistical probability for price movements based on historical data (1-12 months). Creates detailed probability profiles for each weekday-hour combination with precise accuracy.",
+                  },
+                ].map((b) => (
+                  <Card key={b.title} className="maestro-card h-full flex flex-col">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center">
+                        <b.icon className="mr-2 h-5 w-5 text-purple-400" />
+                        {b.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-gray-300">
+                      <p>{b.text}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
 
