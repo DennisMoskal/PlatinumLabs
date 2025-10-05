@@ -298,7 +298,7 @@ export default function HomePage() {
                     className={`${btnPrimary} w-full`}
                     aria-label="Get CryptoPulse Pro"
                   >
-                    Get CryptoPulse Pro+guide-english version 
+                    Get CryptoPulse Pro+info-english version 
                   </Link>
                   <Link
                     href="https://platinumlabs.gumroad.com/l/CryptoPulseProdeutsch"
@@ -307,7 +307,7 @@ export default function HomePage() {
                     className={`${btnPrimary} w-full`}
                     aria-label="Hol dir CryptoPulse Pro auf Deutsch"
                   >
-                    Hol dir CryptoPulse Pro+Anleitung-Deutsche Version
+                    Hol dir CryptoPulse Pro+Info-Deutsche Version
                   </Link>
                 </div>
               </div>
