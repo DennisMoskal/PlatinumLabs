@@ -4,6 +4,8 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const PREFERRED_DOMAIN = "https://platinumlabs.vercel.app";
+
 export const metadata: Metadata = {
   title: "PlatinumLabs - Trade Smarter | Professional Crypto Trading Tools & AI Bots",
   description:
@@ -14,17 +16,29 @@ export const metadata: Metadata = {
   creator: "PlatinumLabs",
   publisher: "PlatinumLabs",
   applicationName: "PlatinumLabs",
-  metadataBase: new URL("https://platinumlabs.vercel.app"),
-  alternates: { canonical: "https://platinumlabs.vercel.app/" },
+  metadataBase: new URL(PREFERRED_DOMAIN),
+  alternates: { 
+    canonical: './', // Dynamischer Canonical für jede Seite
+  },
   openGraph: {
     title: "PlatinumLabs - Trade Smarter",
     description:
       "Professional crypto trading tools, AI-powered bots, and advanced analytics for the modern DeFi trader.",
-    url: "https://platinumlabs.vercel.app",
+    url: PREFERRED_DOMAIN,
     siteName: "PlatinumLabs",
     images: [
-      { url: "/images/cover-1200x630.jpg", width: 1200, height: 630, alt: "PlatinumLabs - Professional Crypto Trading Tools" },
-      { url: "/images/cover-1200x1200.jpg", width: 1200, height: 1200, alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)" },
+      { 
+        url: "/images/cover-1200x630.jpg", 
+        width: 1200, 
+        height: 630, 
+        alt: "PlatinumLabs - Professional Crypto Trading Tools" 
+      },
+      { 
+        url: "/images/cover-1200x1200.jpg", 
+        width: 1200, 
+        height: 1200, 
+        alt: "PlatinumLabs - Professional Crypto Trading Tools (Square)" 
+      },
     ],
     locale: "en_US",
     type: "website",
@@ -49,7 +63,7 @@ export const metadata: Metadata = {
   verification: { google: "gSAsxWmOFdGA-fzAf37lxqrJyMnFL-TiscNlX5FRriI" },
   icons: {
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" }, // Standard-Favicon ohne sizes
+      { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-48x48.png", sizes: "48x48", type: "image/png" },
@@ -69,7 +83,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Entferne redundante <link>-Tags, da metadata.icons ausreichend ist */}
+        {/* Dynamischer Canonical Tag per Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var canonical = document.createElement('link');
+                canonical.rel = 'canonical';
+                var path = window.location.pathname;
+                canonical.href = '${PREFERRED_DOMAIN}' + path;
+                document.head.appendChild(canonical);
+              })();
+            `,
+          }}
+        />
+
+        {/* Schema.org Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -78,8 +107,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Organization",
               name: "PlatinumLabs",
               description: "Professional crypto trading tools and AI-powered solutions for the modern DeFi trader",
-              url: "https://platinumlabs.vercel.app",
-              logo: "https://platinumlabs.vercel.app/logo.png",
+              url: PREFERRED_DOMAIN,
+              logo: `${PREFERRED_DOMAIN}/logo.png`,
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+49-172-205-8855",
