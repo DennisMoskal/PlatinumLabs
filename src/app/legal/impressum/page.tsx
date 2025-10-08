@@ -55,7 +55,7 @@ export default function ImpressumPage() {
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4">Contact Information</h2>
               <div className="space-y-1.5">
-                <p><strong>Email:</strong> dennismoskal@yahoo.com</p>
+                <p><strong>Email:</strong> info@unser-vergleichsportal.de</p>
                 <p><strong>Phone:</strong> +49 172 205 8855</p>
               </div>
             </section>
