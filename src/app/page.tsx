@@ -572,7 +572,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h3 className="text-3xl font-bold text-white mb-4 maestro-text-glow">Our Bridging Bots</h3>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Seamlessly bridge assets across multiple blockchains with specialized, non-custodial flows.
               </p>
             </div>
@@ -632,7 +632,7 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="maestro-footer border-t border-white/10 py-12 relative z-10">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center gap-1">
@@ -652,15 +652,6 @@ export default function HomePage() {
                   <li><Link href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</Link></li>
                   <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</Link></li>
                   <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-white font-semibold mb-4">Resources</h4>
-                <ul className="space-y-2">
-                  <li><Link href="/guide" className="text-gray-400 hover:text-white transition-colors">Trading Guide</Link></li>
-                  <li><Link href="/faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
-                  <li><Link href="/support" className="text-gray-400 hover:text-white transition-colors">Support</Link></li>
                 </ul>
               </div>
 
