@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import {
   FlaskConical,
   CircuitBoard,
@@ -629,6 +630,123 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Bitcoin Special Sektion */}
+        <section className="py-20 maestro-section-alt" id="bitcoin-special">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">
+                Bitcoin Special: Ihr Weg zur digitalen Wertspeicherung
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Tauchen Sie ein in unsere umfassende Serie über Bitcoin – von seiner Rolle als digitales Gold über die Technologie der Blockchain bis hin zu makroökonomischen Perspektiven und praktischen Spartipps.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: "Bitcoin ist das digitale Gold. Aber warum?",
+                  description: "Entdecken Sie, warum Bitcoin als Wertspeicher Gold übertrumpft – durch absolute Knappheit und digitale Übertragbarkeit.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-1-bitcoin-ist-das-digitale-gold-aber-warum-dennis-moskal-grbrf",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Der Architekt der Dezentralität: Was ist eine Blockchain?",
+                  description: "Verstehen Sie, wie die Blockchain Bitcoins Knappheit und Zensurresistenz durch Proof-of-Work und Nodes sichert.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-2-der-architekt-dezentralit%C3%A4t-ist-eine-dennis-moskal-9wa8f",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Die Rolle von Geld: Warum Bitcoin das beste Gut ist",
+                  description: "Erfahren Sie, warum Bitcoin als Hard Money die Schwächen des Fiat-Systems überwindet und Kaufkraft sichert.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-3-die-rolle-von-geld-warum-bitcoin-das-beste-gut-moskal-bpd7f",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "MicroStrategy vs. Bitcoin: Wie funktioniert $MSTR?",
+                  description: "Analyse der genialen Kapitalmarktstrategie von MicroStrategy, die $MSTR zur Bitcoin-Akkumulationsmaschine macht.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-4-microstrategy-vs-bitcoin-wie-funktioniert-mstr-moskal-ihnef",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Trump und der Bitcoin: Wird BTC zur Reserve in den USA?",
+                  description: "Wie Trumps Politik Bitcoin zur strategischen Reserve der USA machen könnte und was das bedeutet.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-5-trump-und-der-bitcoin-wird-zur-reserve-usa-dennis-moskal-i4nbf",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Bin ich zu spät für Bitcoin? 5 Gründe, warum wir sagen: Nein!",
+                  description: "Warum Bitcoins Marktkapitalisierung zeigt, dass wir noch am Anfang stehen – und wie Sie profitieren können.",
+                  url: "https://www.linkedin.com/pulse/ausgabe-6-bin-ich-zu-sp%C3%A4t-f%C3%BCr-bitcoin-5-gr%C3%BCnde-warum-wir-moskal-ctfcf",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Echter Insidertipp: Die Bitcoin-Kostenfalle einfach erklärt",
+                  description: "Vermeiden Sie hohe Gebühren durch strategisches UTXO-Management beim Bitcoin-Sparen.",
+                  url: "https://www.linkedin.com/pulse/7echter-insidertipp-die-bitcoin-kostenfalle-einfach-erkl%C3%A4rt-moskal-7i1bf",
+                  date: "23. November 2025",
+                },
+                {
+                  title: "Bitcoin als disruptive Kraft: Unendliches Wachstum ohne Schaden",
+                  description: "Warum Bitcoins reiner monetärer Zweck die Wirtschaft entlastet und es einzigartig macht.",
+                  url: "https://www.linkedin.com/pulse/8-bitcoin-als-disruptive-kraft-warum-es-das-einzige-asset-moskal-btacf",
+                  date: "23. November 2025",
+                },
+              ].map((post, index) => (
+                <Card
+                  key={index}
+                  className="maestro-card h-full flex flex-col transition-all duration-300 hover:transform hover:scale-[1.02]"
+                >
+                  <CardHeader className="pb-4 flex-shrink-0">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white break-words">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-400">{post.date}</p>
+                  </CardHeader>
+                  <CardContent className="p-4 sm:p-6 pt-0 flex flex-col flex-grow">
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed flex-grow mb-4">
+                      {post.description}
+                    </p>
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="mt-auto"
+                      aria-label={`LinkedIn-Beitrag lesen: ${post.title}`}
+                    >
+                      <Button
+                        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium text-sm sm:text-base transition-all duration-300 ease-in-out hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-lg"
+                      >
+                        Beitrag lesen
+                        <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Button>
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <a
+                href="https://www.linkedin.com/in/unservergleichsportalde"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Besuchen Sie unser LinkedIn-Profil für weitere Beiträge"
+              >
+                <Button
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium text-sm sm:text-base px-6 py-3 transition-all duration-300 ease-in-out hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-lg"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                  </svg>
+                  Mehr Bitcoin-Insights auf LinkedIn
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="maestro-footer border-t border-white/10 py-12 relative z-10">
           <div className="container mx-auto px-4">
@@ -652,6 +770,7 @@ export default function HomePage() {
                   <li><Link href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</Link></li>
                   <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading-Bots</Link></li>
                   <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading-Tools</Link></li>
+                  <li><Link href="#bitcoin-special" className="text-gray-400 hover:text-white transition-colors">Bitcoin Special</Link></li>
                 </ul>
               </div>
 
