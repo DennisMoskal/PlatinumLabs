@@ -48,11 +48,11 @@ const supportedChains = [
 
 const heroFeatures = [
   "Multi-Wallet Sniping",
-  "Smart Gas & Slippage",
-  "Anti-Rug Protection",
-  "Auto-Trade",
+  "Intelligentes Gas & Slippage",
+  "Anti-Rug Schutz",
+  "Auto-Trading",
   "Token Sniffer",
-  "Multi-Chain & Lightning",
+  "Multi-Chain & Blitzschnell",
 ]
 
 const tradingBots = [
@@ -60,8 +60,8 @@ const tradingBots = [
     id: "maestro",
     name: "Maestro Bot",
     description:
-      "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Protection, Call-Channel-Sniping, Wallet-Tools.",
-    recommendation: "Great for Cross-Chain Bridging",
+      "Multichain Trading & Bridging (Houdini via Maestro). Auto-Snipe, Copy-Trading, Anti-MEV/Rug Schutz, Call-Channel-Sniping, Wallet-Tools.",
+    recommendation: "Ideal für Cross-Chain Bridging",
     tags: ["Multichain", "Bridge", "Copy-Trading", "Anti-MEV"],
     icon: Bot,
     featured: true,
@@ -71,8 +71,8 @@ const tradingBots = [
     id: "bullx",
     name: "BullX",
     description:
-      "Multi-chain via Telegram & Web. Fast execution, limit orders, Pump-Vision, multi-wallet, live charts — ideal for active trading.",
-    recommendation: "Best for Limit Orders & Charts",
+      "Multi-chain via Telegram & Web. Schnelle Ausführung, Limit Orders, Pump-Vision, Multi-Wallet, Live-Charts — perfekt für aktives Trading.",
+    recommendation: "Beste für Limit Orders & Charts",
     tags: ["Multi-Chain", "Limit Orders", "Charts", "Web-Interface"],
     icon: TrendingUp,
     link: "https://t.me/bull_x_trading_bot?start=ref_01z8ia",
@@ -81,9 +81,9 @@ const tradingBots = [
     id: "solsniperx",
     name: "SolSniper X",
     description:
-      "High-speed sniping on Solana. Auto-buy new tokens, rug filter, LP burn checks, real-time logs — built for early entries.",
-    recommendation: "Early SOL Snipes",
-    tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Buy"],
+      "Hochgeschwindigkeits-Sniping auf Solana. Auto-Kauf neuer Tokens, Rug-Filter, LP-Burn-Checks, Echtzeit-Logs — gebaut für frühe Einstiege.",
+    recommendation: "Frühe SOL Snipes",
+    tags: ["Solana", "Sniping", "Rug-Filter", "Auto-Kauf"],
     icon: Target,
     link: "https://t.me/SolSniper_X_bot?start=ref_7SaiUk",
   },
@@ -91,9 +91,9 @@ const tradingBots = [
     id: "bonkbot",
     name: "BONKbot",
     description:
-      "Lightning-fast Solana trading with Jupiter routing, MEV protection, limit orders, auto-buys & portfolio tracking.",
-    recommendation: "Top Pick on Solana",
-    tags: ["Solana", "Jupiter", "MEV-Protection", "Portfolio"],
+      "Blitzschnelles Solana-Trading mit Jupiter-Routing, MEV-Schutz, Limit Orders, Auto-Käufe & Portfolio-Tracking.",
+    recommendation: "Top Wahl auf Solana",
+    tags: ["Solana", "Jupiter", "MEV-Schutz", "Portfolio"],
     icon: Zap,
     link: "https://t.me/BonkBot_Original_Bot?start=ref_zzyre",
   },
@@ -101,7 +101,7 @@ const tradingBots = [
     id: "blum",
     name: "Blum",
     description:
-      "Multichain (TON, Solana, BNB). On-chain sniping, Terminal UI, limit orders, bridge, wallet management, P&L reports.",
+      "Multichain (TON, Solana, BNB). On-Chain-Sniping, Terminal-UI, Limit Orders, Bridge, Wallet-Management, P&L-Reports.",
     recommendation: "TON-First Multichain Terminal",
     tags: ["TON", "Solana", "BNB", "Terminal-UI"],
     icon: Bot,
@@ -111,8 +111,8 @@ const tradingBots = [
     id: "soltradingbot",
     name: "SolTradingBot",
     description:
-      "Solana-focused with Jupiter/Orca/Raydium integration, copy trading, limit/DCA orders, backup bots under heavy load.",
-    recommendation: "Robust Jupiter/Orca Routing",
+      "Solana-fokussiert mit Jupiter/Orca/Raydium-Integration, Copy-Trading, Limit/DCA-Orders, Backup-Bots bei hoher Last.",
+    recommendation: "Robustes Jupiter/Orca Routing",
     tags: ["Solana", "Jupiter", "Copy-Trading", "DCA"],
     icon: Copy,
     link: "https://t.me/SolTradingBot?start=jOXoZ6gZY",
@@ -121,9 +121,9 @@ const tradingBots = [
     id: "hector",
     name: "Hector Trojan Bot",
     description:
-      "AI-powered strategies, hidden-gem scanning, fast execution in Telegram. Non-custodial and Solana-focused.",
-    recommendation: "AI-Driven Gem Scanning",
-    tags: ["AI", "Hidden-Gems", "Solana", "Fast"],
+      "KI-gestützte Strategien, Hidden-Gem-Scanning, schnelle Ausführung in Telegram. Non-custodial und Solana-fokussiert.",
+    recommendation: "KI-gestütztes Gem Scanning",
+    tags: ["KI", "Hidden-Gems", "Solana", "Schnell"],
     icon: Brain,
     link: "https://t.me/hector_trojanbot?start=r-schmied0815",
   },
@@ -131,9 +131,9 @@ const tradingBots = [
     id: "tradewiz",
     name: "TradeWiz",
     description:
-      "Ultra-fast copy trading (<2s), smart-wallet recognition, rule automation, DCA/limit support.",
-    recommendation: "Ultra-Fast Copy Trading",
-    tags: ["Copy-Trading", "Fast", "Smart-Wallet", "Automation"],
+      "Ultra-schnelles Copy-Trading (<2s), Smart-Wallet-Erkennung, Regel-Automatisierung, DCA/Limit-Support.",
+    recommendation: "Ultra-schnelles Copy Trading",
+    tags: ["Copy-Trading", "Schnell", "Smart-Wallet", "Automatisierung"],
     icon: Shield,
     link: "https://t.me/TradeWiz_Solbot?start=r-WLRZWOBV5L",
   },
@@ -144,9 +144,9 @@ const bridgingBots = [
     id: "maestro-bridge",
     name: "Maestro Bot",
     description:
-      "Multichain bridging with Houdini for optimized routes. Supports Ethereum, Solana, BSC and more — ideal for beginners and professionals.",
-    recommendation: "Best for Cross-Chain",
-    tags: ["Multichain", "Houdini", "Non-Custodial", "Low Fees"],
+      "Multichain Bridging mit Houdini für optimierte Routen. Unterstützt Ethereum, Solana, BSC und mehr — ideal für Anfänger und Profis.",
+    recommendation: "Beste für Cross-Chain",
+    tags: ["Multichain", "Houdini", "Non-Custodial", "Geringe Gebühren"],
     icon: Bot,
     featured: true,
     link: "https://t.me/maestro?start=r-schmied0815",
@@ -155,7 +155,7 @@ const bridgingBots = [
     id: "blum-bridge",
     name: "Blum Bot",
     description:
-      "Bridging for TON, Solana, BNB and more. Terminal UI and wallet management for fast, simple transfers.",
+      "Bridging für TON, Solana, BNB und mehr. Terminal-UI und Wallet-Management für schnelle, einfache Transfers.",
     recommendation: "TON-First Bridge",
     tags: ["TON", "Solana", "BNB", "Terminal-UI"],
     icon: Activity,
@@ -164,12 +164,12 @@ const bridgingBots = [
 ]
 
 const tradingTools = [
-  { title: "Real-time Market Analysis", description: "Advanced candlestick charts and technical indicators for precise market timing.", icon: BarChart3 },
-  { title: "AI-Powered Trading Bots", description: "Leverage machine learning algorithms for automated strategies.", icon: Brain },
-  { title: "Risk Management Tools", description: "Stop-loss orders, position sizing, portfolio diversification features.", icon: Shield },
-  { title: "DeFi Integration", description: "Seamless access to DeFi protocols and yield farming.", icon: Activity },
-  { title: "Multi-Chain Support", description: "Trade across Ethereum, Solana, BSC, and more.", icon: Target },
-  { title: "Secure Asset Storage", description: "Cold storage integration and advanced security.", icon: Lock },
+  { title: "Echtzeit-Marktanalyse", description: "Erweiterte Candlestick-Charts und technische Indikatoren für präzises Market Timing.", icon: BarChart3 },
+  { title: "KI-gestützte Trading-Bots", description: "Nutzen Sie Machine-Learning-Algorithmen für automatisierte Strategien.", icon: Brain },
+  { title: "Risikomanagement-Tools", description: "Stop-Loss-Orders, Positionsgrößen, Portfolio-Diversifizierungs-Features.", icon: Shield },
+  { title: "DeFi-Integration", description: "Nahtloser Zugang zu DeFi-Protokollen und Yield Farming.", icon: Activity },
+  { title: "Multi-Chain-Unterstützung", description: "Handeln Sie über Ethereum, Solana, BSC und mehr.", icon: Target },
+  { title: "Sichere Asset-Aufbewahrung", description: "Cold-Storage-Integration und erweiterte Sicherheit.", icon: Lock },
 ]
 
 export default function HomePage() {
@@ -188,7 +188,7 @@ export default function HomePage() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <div className="maestro-main-bg">
-        {/* Background Effects */}
+        {/* Hintergrund-Effekte */}
         <div className="maestro-tech-grid" />
         <div className="maestro-floating-particles" />
         <div className="maestro-circuit-overlay" />
@@ -211,13 +211,13 @@ export default function HomePage() {
                 <Link href="#tools" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Tools</Link>
                 <Link href="#bots" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Trading Bots</Link>
                 <Link href="#cryptopulse" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">CryptoPulse Pro</Link>
-                <Link href="/legal/impressum" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Legal</Link>
+                <Link href="/legal/impressum" className="text-gray-300 hover:text-white transition-colors hover:drop-shadow">Rechtliches</Link>
               </div>
             </div>
           </div>
         </nav>
 
-        {/* Hero */}
+        {/* Hero-Bereich */}
         <section className="py-24 relative overflow-hidden">
           <div className="maestro-hero-bg absolute inset-0" />
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -225,23 +225,23 @@ export default function HomePage() {
               <div className="mb-8">
                 <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border border-purple-500/30 text-sm px-4 py-2">
                   <Sparkles className="mr-2 h-4 w-4" />
-                  The Leading Trading Platform
+                  Die führende Trading-Plattform
                 </Badge>
               </div>
 
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-                <span className="maestro-text-accent">Trade</span>{" "}
-                <span className="maestro-text-glow">Smarter</span>
+                <span className="maestro-text-accent">Handeln</span>{" "}
+                <span className="maestro-text-glow">intelligenter</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Professional crypto trading tools, AI-powered bots, and advanced analytics for the modern DeFi trader.
-                Discover institutional-grade solutions for optimal trading performance.
+                Professionelle Krypto-Trading-Tools, KI-gestützte Bots und erweiterte Analysen für den modernen DeFi-Trader.
+                Entdecken Sie institutionelle Lösungen für optimale Trading-Leistung.
               </p>
 
-              {/* Supported Chains */}
+              {/* Unterstützte Chains */}
               <div className="mb-8">
-                <p className="text-sm text-gray-400 mb-6 uppercase tracking-wide">Supported Chains</p>
+                <p className="text-sm text-gray-400 mb-6 uppercase tracking-wide">Unterstützte Chains</p>
                 <div className="flex flex-wrap justify-center gap-4">
                   {supportedChains.map((c) => (
                     <div key={c.name} className="group">
@@ -252,10 +252,10 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 text-gray-400 text-sm">…and many more chains are supported.</p>
+                <p className="mt-4 text-gray-400 text-sm">…und viele weitere Chains werden unterstützt.</p>
               </div>
 
-              {/* Feature list */}
+              {/* Feature-Liste */}
               <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-gray-200 text-base">
                 {heroFeatures.map((f) => (
                   <li key={f} className="flex items-center">
@@ -274,20 +274,20 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">CryptoPulse Pro</h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Advanced cryptocurrency volatility analysis with hour based probability calculations. A comprehensive tool for data-driven trading decisions using historical volatility patterns.
+                Erweiterte Kryptowährungs-Volatilitätsanalyse mit stundenbasierten Wahrscheinlichkeitsberechnungen. Ein umfassendes Tool für datengestützte Handelsentscheidungen mit historischen Volatilitätsmustern.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
               <div className="maestro-card rounded-2xl p-8 flex flex-col">
-                <h3 className="text-2xl font-semibold text-white mb-6">Professional-Grade Analysis</h3>
+                <h3 className="text-2xl font-semibold text-white mb-6">Professionelle Analyse</h3>
                 <div className="space-y-4 text-gray-300">
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Market Intelligence Engine with redundant data streams and error correction</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Precision Timing Analytics for optimal entry/exit point identification</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Configurable Risk Parameters from conservative to aggressive trading styles</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Cross-Asset Volatility Mapping across major cryptocurrency pairs</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Calculates the probability of price changes to the hour, for example for crypto trading or betting</div>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Instant Deployment with plug-and-play setup for immediate results</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Marktintelligenz-Engine mit redundanten Datenströmen und Fehlerkorrektur</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Präzises Timing-Analyse für optimale Ein-/Ausstiegspunkte</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Konfigurierbare Risikoparameter von konservativ bis aggressiv</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Cross-Asset-Volatilitäts-Mapping über wichtige Krypto-Paare</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-purple-500 rounded-full" />Berechnet die Wahrscheinlichkeit von Preisänderungen stundengenau</div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-blue-500 rounded-full" />Sofortige Bereitstellung mit Plug-and-Play-Setup</div>
                 </div>
                 {/* CTA – jetzt mit mt-8 für harmonischen Abstand */}
                 <div className={`${cardCtaWrap} mt-8 flex flex-col space-y-4`}>
@@ -296,18 +296,18 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${btnPrimary} w-full`}
-                    aria-label="Get CryptoPulse Pro"
+                    aria-label="Holen Sie sich CryptoPulse Pro"
                   >
-                    Get CryptoPulse Pro+info-english version 
+                    CryptoPulse Pro+Info - Englische Version 
                   </Link>
                   <Link
                     href="https://platinumlabs.gumroad.com/l/CryptoPulseProdeutsch"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${btnPrimary} w-full`}
-                    aria-label="Hol dir CryptoPulse Pro auf Deutsch"
+                    aria-label="Holen Sie sich CryptoPulse Pro auf Deutsch"
                   >
-                    Hol dir CryptoPulse Pro+Info-Deutsche Version
+                    CryptoPulse Pro+Info - Deutsche Version
                   </Link>
                 </div>
               </div>
@@ -315,19 +315,19 @@ export default function HomePage() {
               <div className="space-y-6">
                 {[
                   {
-                    title: "Core Data Processing",
+                    title: "Kern-Datenverarbeitung",
                     icon: Database,
-                    text: "Loads data from Binance API with multiple endpoint failover. Automatically cleans erroneous data points and converts timestamps to local timezones for accurate analysis.",
+                    text: "Lädt Daten von der Binance-API mit mehreren Endpunkt-Failovers. Bereinigt automatisch fehlerhafte Datenpunkte und konvertiert Zeitstempel in lokale Zeitzonen für genaue Analysen.",
                   },
                   {
-                    title: "Hourly Volatility Analysis",
+                    title: "Stündliche Volatilitätsanalyse",
                     icon: Clock,
-                    text: "Calculates percentage price changes per hour and identifies movements above configurable thresholds (default 0.1%). Categorizes movements as 'Upward' or 'Downward' grouped by weekday and hour.",
+                    text: "Berechnet prozentuale Preisänderungen pro Stunde und identifiziert Bewegungen über konfigurierbaren Schwellenwerten. Kategorisiert Bewegungen als 'Aufwärts' oder 'Abwärts' gruppiert nach Wochentag und Stunde.",
                   },
                   {
-                    title: "Statistical Probability Engine",
+                    title: "Statistische Wahrscheinlichkeits-Engine",
                     icon: BarChart3,
-                    text: "Determines statistical probability for price movements based on historical data (1-12 months). Creates detailed probability profiles for each weekday-hour combination with precise accuracy.",
+                    text: "Bestimmt statistische Wahrscheinlichkeiten für Preisbewegungen basierend auf historischen Daten. Erstellt detaillierte Wahrscheinlichkeitsprofile für jede Wochentag-Stunde-Kombination mit präziser Genauigkeit.",
                   },
                 ].map((b) => (
                   <Card key={b.title} className="maestro-card h-full flex flex-col">
@@ -356,19 +356,19 @@ export default function HomePage() {
                 <CardContent className="text-gray-300 space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Timing Strategies:</strong> Identify optimal entry and exit times</div>
+                    <div><strong>Timing-Strategien:</strong> Optimale Ein- und Ausstiegszeiten identifizieren</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Risk Management:</strong> Predict volatile trading phases</div>
+                    <div><strong>Risikomanagement:</strong> Volatile Handelsphasen vorhersagen</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Algorithmic Trading:</strong> Data foundation for automated systems</div>
+                    <div><strong>Algorithmisches Trading:</strong> Datengrundlage für automatisierte Systeme</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Portfolio Optimization:</strong> Time reallocations based on volatility patterns</div>
+                    <div><strong>Portfolio-Optimierung:</strong> Zeitliche Neuzuteilungen basierend auf Volatilitätsmustern</div>
                   </div>
                 </CardContent>
               </Card>
@@ -377,25 +377,25 @@ export default function HomePage() {
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <BarChart3 className="mr-2 h-5 w-5 text-blue-400" />
-                    Market Analysis
+                    Marktanalyse
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-gray-300 space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Pattern Recognition:</strong> Detect recurring market cycles</div>
+                    <div><strong>Mustererkennung:</strong> Wiederkehrende Marktzyklen erkennen</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Seasonality Analysis:</strong> Weekday and time-specific trends</div>
+                    <div><strong>Saisonalitätsanalyse:</strong> Wochentag- und zeitbezogene Trends</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Market Research:</strong> Compare volatility patterns across assets</div>
+                    <div><strong>Marktforschung:</strong> Volatilitätsmuster über Assets vergleichen</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Academic Research:</strong> Crypto market behavior studies</div>
+                    <div><strong>Akademische Forschung:</strong> Studien zum Kryptomarktverhalten</div>
                   </div>
                 </CardContent>
               </Card>
@@ -404,25 +404,25 @@ export default function HomePage() {
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <Target className="mr-2 h-5 w-5 text-purple-400" />
-                    Practical Applications
+                    Praktische Anwendungen
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-gray-300 space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Day Trading:</strong> Optimize trading hours for maximum profit</div>
+                    <div><strong>Day Trading:</strong> Handelszeiten für maximalen Profit optimieren</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Swing Trading:</strong> Identify probable turning points</div>
+                    <div><strong>Swing Trading:</strong> Wahrscheinliche Wendepunkte identifizieren</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>DCA Strategies:</strong> Time Dollar-Cost-Averaging purchases</div>
+                    <div><strong>DCA-Strategien:</strong> Dollar-Cost-Averaging-Käufe timen</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
-                    <div><strong>Stop-Loss Placement:</strong> Better positioning based on volatility expectations</div>
+                    <div><strong>Stop-Loss-Platzierung:</strong> Bessere Positionierung basierend auf Volatilitätserwartungen</div>
                   </div>
                 </CardContent>
               </Card>
@@ -433,25 +433,25 @@ export default function HomePage() {
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <Brain className="mr-2 h-5 w-5 text-cyan-400" />
-                    For Algorithmic Developers
+                    Für Algorithmische Entwickler
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-gray-300 space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Backtest multiple parameter sets with historical data</div>
+                    <div>Backtest mehrerer Parametersätze mit historischen Daten</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Recognize statistical advantages in market patterns</div>
+                    <div>Erkennen statistischer Vorteile in Marktmustern</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Adapt analysis to specific trading strategies</div>
+                    <div>Anpassen der Analyse an spezifische Handelsstrategien</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Develop trading bots with statistically-founded decisions</div>
+                    <div>Entwicklung von Trading-Bots mit statistisch fundierten Entscheidungen</div>
                   </div>
                 </CardContent>
               </Card>
@@ -460,25 +460,25 @@ export default function HomePage() {
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <Users className="mr-2 h-5 w-5 text-orange-400" />
-                    For Active Traders
+                    Für Aktive Trader
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-gray-300 space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Find high-probability trading windows with precise timing</div>
+                    <div>Finden Sie hochwahrscheinliche Handelsfenster mit präziser Timing</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Adjust parameters for personalized risk management</div>
+                    <div>Passen Sie Parameter für persönliches Risikomanagement an</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Export data for further analysis and strategy development</div>
+                    <div>Exportieren Sie Daten für weitere Analysen und Strategieentwicklung</div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>Generate market reports and forecasts for informed decisions</div>
+                    <div>Generieren Sie Marktberichte und Prognosen für fundierte Entscheidungen</div>
                   </div>
                 </CardContent>
               </Card>
@@ -490,9 +490,9 @@ export default function HomePage() {
         <section id="tools" className="py-20">
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Professional Trading Tools</h2>
+              <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Professionelle Trading-Tools</h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                A comprehensive suite for strategic crypto, DeFi, and multi-asset investing.
+                Ein umfassendes Set für strategisches Krypto-, DeFi- und Multi-Asset-Investing.
               </p>
             </div>
 
@@ -518,7 +518,7 @@ export default function HomePage() {
         <section id="bots" className="py-20 maestro-section-alt">
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading Bots</h2>
+              <h2 className="text-4xl font-bold text-white mb-4 maestro-text-glow">Premium Trading-Bots</h2>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -555,9 +555,9 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={btnPrimary}
-                        aria-label={`Launch ${bot.name} on Telegram`}
+                        aria-label={`Starten Sie ${bot.name} auf Telegram`}
                       >
-                        Launch on Telegram
+                        Auf Telegram starten
                       </Link>
                     </div>
                   </CardFooter>
@@ -571,9 +571,9 @@ export default function HomePage() {
         <section className="py-20">
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <h3 className="text-3xl font-bold text-white mb-4 maestro-text-glow">Our Bridging Bots</h3>
+              <h3 className="text-3xl font-bold text-white mb-4 maestro-text-glow">Unsere Bridging-Bots</h3>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Seamlessly bridge assets across multiple blockchains with specialized, non-custodial flows.
+                Nahtloses Bridging von Assets über mehrere Blockchains mit spezialisierten, non-custodial Flows.
               </p>
             </div>
 
@@ -611,9 +611,9 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={btnPrimary}
-                        aria-label={`Start Bridging via ${bot.name}`}
+                        aria-label={`Starten Sie Bridging via ${bot.name}`}
                       >
-                        Start Bridging
+                        Bridging starten
                       </Link>
                     </div>
                   </CardFooter>
@@ -622,8 +622,8 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="#bots" className={btnPrimary} aria-label="Discover All Trading Bots">
-                Discover All Trading Bots
+              <Link href="#bots" className={btnPrimary} aria-label="Entdecken Sie alle Trading-Bots">
+                Alle Trading-Bots entdecken
               </Link>
             </div>
           </div>
@@ -642,32 +642,32 @@ export default function HomePage() {
                   <span className="text-xl font-bold text-white">PlatinumLabs</span>
                 </div>
                 <p className="text-gray-400">
-                  Professional crypto trading tools and AI-powered solutions for the modern DeFi trader.
+                  Professionelle Krypto-Trading-Tools und KI-gestützte Lösungen für den modernen DeFi-Trader.
                 </p>
               </div>
 
               <div>
-                <h4 className="text-white font-semibold mb-4">Products</h4>
+                <h4 className="text-white font-semibold mb-4">Produkte</h4>
                 <ul className="space-y-2">
                   <li><Link href="#cryptopulse" className="text-gray-400 hover:text-white transition-colors">CryptoPulse Pro</Link></li>
-                  <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading Bots</Link></li>
-                  <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading Tools</Link></li>
+                  <li><Link href="#bots" className="text-gray-400 hover:text-white transition-colors">Trading-Bots</Link></li>
+                  <li><Link href="#tools" className="text-gray-400 hover:text-white transition-colors">Trading-Tools</Link></li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="text-white font-semibold mb-4">Legal</h4>
+                <h4 className="text-white font-semibold mb-4">Rechtliches</h4>
                 <ul className="space-y-2">
                   <li><Link href="/legal/impressum" className="text-gray-400 hover:text-white transition-colors">Impressum</Link></li>
-                  <li><Link href="/legal/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                  <li><Link href="/legal/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
-                  <li><Link href="/legal/cookies" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</Link></li>
+                  <li><Link href="/legal/privacy" className="text-gray-400 hover:text-white transition-colors">Datenschutz</Link></li>
+                  <li><Link href="/legal/terms" className="text-gray-400 hover:text-white transition-colors">Nutzungsbedingungen</Link></li>
+                  <li><Link href="/legal/cookies" className="text-gray-400 hover:text-white transition-colors">Cookie-Richtlinie</Link></li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t border-white/10 mt-8 pt-8 text-center">
-              <p className="text-gray-400">© 2025 PlatinumLabs. All rights reserved. | Trade Smarter</p>
+              <p className="text-gray-400">© 2025 PlatinumLabs. Alle Rechte vorbehalten. | Handeln Sie intelligenter</p>
             </div>
           </div>
         </footer>
