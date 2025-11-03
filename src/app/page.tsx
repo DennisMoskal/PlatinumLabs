@@ -226,7 +226,7 @@ export default function HomePage() {
               <div className="mb-8">
                 <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border border-purple-500/30 text-sm px-4 py-2">
                   <Sparkles className="mr-2 h-4 w-4" />
-                  Die führende Trading-Plattform
+                  Die Trading-Plattform für smarte tools
                 </Badge>
               </div>
 
