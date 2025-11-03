@@ -230,8 +230,8 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-                <span className="maestro-text-accent">Handeln</span>{" "}
-                <span className="maestro-text-glow">intelligenter</span>
+                <span className="maestro-text-accent">Trade</span>{" "}
+                <span className="maestro-text-glow">smarter</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
